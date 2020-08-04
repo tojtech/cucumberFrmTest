@@ -5,6 +5,7 @@ import com.example.pageObjects.Execises.navigatingBetwennPages;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.cucumber.java.mk_latn.No;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -44,38 +45,40 @@ public class GlobalSteps {
         element.sendKeys(hello + Keys.ENTER);
     }
 
-    public WebElement getSearchTextFieldElement(){
-       return getDriver().findElement(By.xpath("//input[@name='q']"));
+    public WebElement getSearchTextFieldElement() {
+        return getDriver().findElement(By.xpath("//input[@name='q']"));
 
     }
 
     @Given("I open index page")
-    public LoginClass indexPage(){
-       String baseURL2 =TestsConfig.getConfig().getBaseUrl();
-            getDriver().get(baseURL2);
+    public LoginClass indexPage() {
+        String baseURL2 = TestsConfig.getConfig().getBaseUrl();
+        getDriver().get(baseURL2);
         return new LoginClass();
     }
 
     @Given("Google index page opened")
-    public Homework  indexPageOpen() throws InterruptedException {
+    public Homework indexPageOpen() throws InterruptedException {
         String baseURl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseURl);
         Thread.sleep(2000);
-        return  new Homework();
+        return new Homework();
     }
 
-    @Given("Index Opened")
-    public navigatingBetwennPages navigation(){
-        String baseUrl = "https://letskodeit.teachable.com/";
+
+    @Given("User should be on index page")
+    public NorthWind userShouldBeOnIndexPage() throws InterruptedException {
+        String baseUrl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseUrl);
-        getDriver().manage().window().maximize();
-        String title = getDriver().getTitle();
-        return   new navigatingBetwennPages();
+        Thread.sleep(2000);
+        return new NorthWind();
     }
 
-    @Given("Index Opened first")
-    public void indexOpenedFirst() {
-        String baseURL = TestsConfig.getConfig().getBaseUrl();
-        getDriver().get(baseURL);
+    @Given("NorthWind index page")
+    public NorthWind2 user() throws InterruptedException {
+        String baseUrl = TestsConfig.getConfig().getBaseUrl();
+        getDriver().get(baseUrl);
+        Thread.sleep(2000);
+        return new NorthWind2();
     }
 }

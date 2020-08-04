@@ -1,6 +1,7 @@
 package com.example.pageObjects;
 
 import com.example.BasePage;
+import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -21,5 +22,5 @@ public class ExamplePage extends BasePage {
         getWait().until(ExpectedConditions.titleIs("Google"));
     }
 
-//    other step definitions go here
+
 }
