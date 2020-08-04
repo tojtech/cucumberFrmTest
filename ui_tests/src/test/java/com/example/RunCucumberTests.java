@@ -1,8 +1,18 @@
 package com.example;
 
+import com.example.helpers.ElementsInteraction;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
+
+import static com.example.CucumberHooks.getDriver;
 
 @CucumberOptions(plugin = {
         "rerun:target/rerun.txt", // Create a text file with failed scenarios
@@ -19,4 +29,8 @@ public class RunCucumberTests extends AbstractTestNGCucumberTests {
     public Object[][] scenarios() {
         return super.scenarios();
     }
+
+
 }
+
+
