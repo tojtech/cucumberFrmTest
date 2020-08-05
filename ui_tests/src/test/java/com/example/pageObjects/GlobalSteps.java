@@ -67,11 +67,11 @@ public class GlobalSteps {
 
 
     @Given("User should be on index page")
-    public NorthWind userShouldBeOnIndexPage() throws InterruptedException {
+    public NorthWind2 userShouldBeOnIndexPage() throws InterruptedException {
         String baseUrl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseUrl);
         Thread.sleep(2000);
-        return new NorthWind();
+        return new NorthWind2();
     }
 
     @Given("NorthWind index page")
