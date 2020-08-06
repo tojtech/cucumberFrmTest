@@ -4,6 +4,7 @@ import com.example.BasePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -25,6 +26,7 @@ public class singInPage extends BasePage {
 //        Add verifications implemented using WebDriverWait that would be checking if the page is actually opened
         getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
     }
+
 
     private void signInButtonGetter(){
         String loginURL = "https://bigprof.com/demo/index.php?signIn=1";
@@ -74,6 +76,7 @@ public class singInPage extends BasePage {
     public void iClickSignInButton() throws InterruptedException {
         clickSubmitButton();
         Thread.sleep(2000);
+
     }
 
     @Then("i sign out")

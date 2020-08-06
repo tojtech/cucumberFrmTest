@@ -1,22 +1,20 @@
 package com.example.pageObjects;
 
 import com.example.BasePage;
-import com.example.TestsConfig;
+
 import com.example.helpers.ElementsInteraction;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import javax.swing.*;
 
-import java.awt.*;
-import java.security.Key;
+
 import java.util.List;
 
 import static com.example.CucumberHooks.getDriver;
@@ -51,6 +49,7 @@ public class LoginClass extends BasePage {
         Thread.sleep(3000);
         System.out.println("We checked the checkBox");
         Action action = (Action) getDriver();
+
     }
 
 

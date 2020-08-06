@@ -1,18 +1,13 @@
 package com.example.pageObjects;
 
 import com.example.TestsConfig;
-import com.example.pageObjects.Execises.navigatingBetwennPages;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import io.cucumber.java.mk_latn.No;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import  com.example.pageObjects.Execises.*;
 
-
-import java.util.concurrent.TimeUnit;
 
 import static com.example.CucumberHooks.getDriver;
 
@@ -79,6 +74,16 @@ public class GlobalSteps {
         String baseUrl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseUrl);
         Thread.sleep(2000);
+
         return new NorthWind2();
+
+    }
+
+    @Given("Google main page")
+    public javaScript1 googleMainPage() throws InterruptedException {
+        String baseURl =TestsConfig.getConfig().getBaseUrl();
+        getDriver().get(baseURl);
+        Thread.sleep(2000);
+    return new javaScript1();
     }
 }
