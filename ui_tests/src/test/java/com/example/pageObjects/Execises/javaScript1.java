@@ -1,4 +1,4 @@
-package com.example.pageObjects;
+package com.example.pageObjects.Execises;
 
 import com.example.BasePage;
 import com.example.TestsConfig;

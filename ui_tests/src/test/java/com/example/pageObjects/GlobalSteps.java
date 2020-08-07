@@ -1,6 +1,9 @@
 package com.example.pageObjects;
 
 import com.example.TestsConfig;
+import com.example.pageObjects.Execises.SwitchWindowsDemo;
+import com.example.pageObjects.Execises.iFrameDemo;
+import com.example.pageObjects.Execises.javaScript1;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -85,5 +88,22 @@ public class GlobalSteps {
         getDriver().get(baseURl);
         Thread.sleep(2000);
     return new javaScript1();
+    }
+
+    @Given("user is on index page")
+    public SwitchWindowsDemo userIsOnIndexPage() throws InterruptedException {
+        getDriver().get(TestsConfig.getConfig().getBaseUrl());
+        getDriver().manage().window().maximize();
+        Thread.sleep(2000);
+        return new SwitchWindowsDemo();
+    }
+
+    @Given("Home page")
+    public iFrameDemo homePage() throws InterruptedException {
+        getDriver().get(TestsConfig.getConfig().getBaseUrl());
+        getDriver().manage().window().maximize();
+        Thread.sleep(2000);
+        return  new iFrameDemo();
+
     }
 }
