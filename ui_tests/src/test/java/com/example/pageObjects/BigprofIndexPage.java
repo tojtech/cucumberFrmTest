@@ -30,6 +30,12 @@ public class BigprofIndexPage extends BasePage {
         getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
     }
 
+    @And("^user clicks at Customers section$")
+    public CustomersPage clickToOpenCustomersPage(){
+        getTitleOfCustomersSection().click();
+        return new CustomersPage();
+    }
+
     public WebElement getTitleOfCustomersSection(){
         return getDriver().findElement(By.xpath("//a[@href='customers_view.php']"));
     }
@@ -38,30 +44,6 @@ public class BigprofIndexPage extends BasePage {
     public void isCustomerSectionTitleCorrect(String expectedTitle){
         Assert.assertTrue(getTitleOfCustomersSection().getText().contains(expectedTitle),
                 "User should see expected Title, but instead " + getTitleOfCustomersSection().getText() + " is visible");
-    }
-
-
-    public WebElement getLoginTextfield(){
-       return getDriver().findElement(By.cssSelector("div.A8SBwf>div>center>input.TF2"));
-    }
-
-    public WebElement getPasswordTextfield(){
-        return getDriver().findElement(By.cssSelector("div.A8SBwf>div>center>div.TF1"));
-    }
-
-    public WebElement getLoginButton(){
-        return getDriver().findElement(By.cssSelector("div.A8SBwf>div>center>button.myButton"));
-    }
-
-    @When("^user login to site using Username as \"([^\"]*)\" and Password \"([^\"]*)\"$")
-    public void passLoginAndPassword(String username, String password){
-        // some
-    }
-
-    @Then("I can click that button")
-    public void clickLoginButton(){
-        getLoginButton().click();
-        String myActualLable = getLoginButton().getText();
     }
 
     @When("My Login button is visible")
