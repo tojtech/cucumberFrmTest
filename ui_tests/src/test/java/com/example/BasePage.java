@@ -1,5 +1,7 @@
 package com.example;
 
+
+import com.example.pageObjects.GoogleStartPage;
 import com.example.selenium.WaitForAjaxCalls;
 import org.openqa.selenium.WebDriverException;
 import org.slf4j.Logger;
@@ -30,6 +32,7 @@ public abstract class BasePage {
         getContext().setPageName(pageName);
         LOG.debug("open {}", pageName);
         waitForOpen();
+
     }
 
     /**
@@ -51,5 +54,7 @@ public abstract class BasePage {
                 this.getClass().getSimpleName(),
                 (float) (System.currentTimeMillis() - currentTime) / 1000,
                 getDriver().getCurrentUrl()));
+
     }
+
 }
