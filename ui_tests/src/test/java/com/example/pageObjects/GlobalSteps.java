@@ -1,6 +1,7 @@
 package com.example.pageObjects;
 
 import com.example.TestsConfig;
+import com.example.pageObjects.Execises.Action_MouseHover;
 import com.example.pageObjects.Execises.SwitchWindowsDemo;
 import com.example.pageObjects.Execises.iFrameDemo;
 import com.example.pageObjects.Execises.javaScript1;
@@ -105,5 +106,13 @@ public class GlobalSteps {
         Thread.sleep(2000);
         return  new iFrameDemo();
 
+    }
+
+    @Given("practice page opened")
+    public Action_MouseHover mouseHover(){
+        String baseUrl = "https://letskodeit.teachable.com/p/practice";
+        getDriver().get(baseUrl);
+        getDriver().manage().window().maximize();
+        return  new Action_MouseHover();
     }
 }
