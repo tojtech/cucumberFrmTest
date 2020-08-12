@@ -2,7 +2,12 @@ package com.example.pageObjects;
 
 import com.example.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import javax.swing.*;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
 
 import static com.example.helpers.ElementsInteraction.getWait;
 
@@ -18,8 +23,22 @@ public class ExamplePage extends BasePage {
      */
     public void isPageOpened() {
 //        Add verifications implemented using WebDriverWait that would be checking if the page is actually opened
-        getWait().until(ExpectedConditions.titleIs("Example Domain"));
+        getWait().until(ExpectedConditions.titleIs("Google"));
     }
 
-//    other step definitions go here
+    public void isPageScrolledDown() {
+        getWait().until(ExpectedConditions.jsReturnsValue(""));
+    }
+
+    public void isNorthWindPageOpen() {
+        getWait().until(ExpectedConditions.titleIs("Hide me!"));
+
+    }
+    public void isGoogleLinkOpen(){
+        getWait().until(ExpectedConditions.titleIs("\n" +
+                "    \n" +
+                "      Hello World · GitHub Guides\n" +
+                "    \n" +
+                "  "));
+    }
 }

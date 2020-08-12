@@ -1,7 +1,13 @@
 package com.example.pageObjects;
 
 import com.example.TestsConfig;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+import java.util.List;
 
 import static com.example.CucumberHooks.getDriver;
 
@@ -10,16 +16,19 @@ import static com.example.CucumberHooks.getDriver;
  * As well as all the entry points into the system (open a url)
  */
 public class GlobalSteps {
-    @When("I open start page")
-    public ExamplePage iOpenDashboardPage() {
-//        Base URL is read from config.properties file located in resources folder. Key is base.url
+    @Given("I open NorthWind page")
+    public NorthWindTest iOpenDashboardNorthWind() {
+      // Base URL is read from config.properties file located in resources folder. Key is base.url
         String baseUrl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseUrl);
-        return new ExamplePage();
+       return new NorthWindTest();
     }
-
     @When("sleep")
     public void sleep() throws InterruptedException {
         Thread.sleep(1000);
+    }
+    public void isSearchFieldOpened(){
+        List<WebElement> searchElements = getDriver().findElements(By.xpath("//a[@class='Fx4vi']"));
+        Assert.assertFalse(((java.util.List) searchElements).isEmpty());
     }
 }
