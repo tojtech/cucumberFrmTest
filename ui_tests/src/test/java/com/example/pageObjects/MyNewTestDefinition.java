@@ -19,12 +19,7 @@ import static com.example.helpers.ElementsInteraction.getWait;
     public void isPageOpened() {
             getWait().until(ExpectedConditions.titleIs("Google"));
     }
-     @Given("I open chrome page")
-     public MyNewTestDefinition iOpenDashboardPage() {
-         String baseUrl = TestsConfig.getConfig().getBaseUrl();
-         getDriver().get(baseUrl);
-         return new MyNewTestDefinition();
-     }
+
         @And("I type in search Hello World And Hit Enter")
         public void iTypeInSearchHelloWorld() {
         String typing = "Hello World";

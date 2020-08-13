@@ -22,20 +22,22 @@ public class NorthWindTest extends BasePage {
         public void isPageOpened() {
             getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
         }
-        @When("is my page open")
-    public void isMyPageOpen() {
-        List<WebElement> searchElements = getDriver().findElements(By.cssSelector(".navbar-header"));
-        Assert.assertFalse(((java.util.List) searchElements).isEmpty());
-    }
-    public WebElement signInPageElement(){
-      return getDriver().findElement(By.cssSelector("a[class=\"btn btn-success navbar-btn navbar-right\"]"));
+    @When("is my page open")
+        public void isMyPageOpen() {
+            List<WebElement> searchElements = getDriver().findElements(By.cssSelector(".navbar-header"));
+            Assert.assertFalse(searchElements.isEmpty());
+
+        }
+         public WebElement signInPageElement(){
+         return getDriver().findElement(By.cssSelector("a[class=\"btn btn-success navbar-btn navbar-right\"]"));
         }
 
-        @Then("I open sign in page")
-        public void iOpenSignInPage() {
+    @Then("I open sign in page")
+        public void iOpenSignInPage() throws InterruptedException {
             signInPageElement().click();
+            Thread.sleep(2000);
         }
-        @And("^I enter \"([^\"]*)\" and \"([^\"]*)\"$")
+    @And("^I enter \"([^\"]*)\" and \"([^\"]*)\"$")
         public void iEnterAnd(String username, String password) {
          WebElement usernameElement = getDriver().findElement(By.cssSelector("#username"));
          WebElement passwordElement = getDriver().findElement(By.cssSelector("#password"));

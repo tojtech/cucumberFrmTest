@@ -18,17 +18,32 @@ import static com.example.CucumberHooks.getDriver;
 public class GlobalSteps {
     @Given("I open NorthWind page")
     public NorthWindTest iOpenDashboardNorthWind() {
-      // Base URL is read from config.properties file located in resources folder. Key is base.url
+        // Base URL is read from config.properties file located in resources folder. Key is base.url
         String baseUrl = TestsConfig.getConfig().getBaseUrl();
+        getDriver().manage().window().maximize();
         getDriver().get(baseUrl);
-       return new NorthWindTest();
+        return new NorthWindTest();
     }
+
     @When("sleep")
     public void sleep() throws InterruptedException {
         Thread.sleep(1000);
     }
-    public void isSearchFieldOpened(){
+
+    public void isSearchFieldOpened() {
         List<WebElement> searchElements = getDriver().findElements(By.xpath("//a[@class='Fx4vi']"));
         Assert.assertFalse(((java.util.List) searchElements).isEmpty());
     }
+
+    @Given("I open chrome page")
+    public MyNewTestDefinition iOpenDashboardPage() {
+        String baseUrl = TestsConfig.getConfig().getBaseUrl();
+        getDriver().manage().window().maximize();
+        getDriver().get(baseUrl);
+        return new MyNewTestDefinition();
+
+
+    }
+
 }
+
