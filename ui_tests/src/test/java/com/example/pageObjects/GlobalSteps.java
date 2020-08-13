@@ -115,4 +115,29 @@ public class GlobalSteps {
         getDriver().manage().window().maximize();
         return  new Action_MouseHover();
     }
+
+
+
+   @Given("index page opened")
+    public void typeHello(){
+        String baseUrl= "https://letskodeit.teachable.com/p/practice";
+        getDriver().get(baseUrl);
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
