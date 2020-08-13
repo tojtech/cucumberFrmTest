@@ -19,17 +19,19 @@ public class GlobalSteps {
 //        Base URL is read from config.properties file located in resources folder. Key is base.url
         String baseUrl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseUrl);
-        Thread.sleep(500);
-
-        WebElement element = getDriver().findElement(By.xpath("//div[@class='modal-footer']/button"));
-        Thread.sleep(500);
-        element.click();
+        sleep(1000);
+        WebElement closeButtonOnModal = getDriver().findElement(By.xpath("//div[@class='modal-footer']/button"));
+        sleep(2000);
+        closeButtonOnModal.click();
         return new BigprofIndexPage();
     }
 
     @When("sleep")
-    public void sleep() throws InterruptedException {
-        Thread.sleep(4000);
+    public static void sleep(long time) throws InterruptedException {
+        Thread.sleep(time);
     }
 
+   // "//*[@id='orders-tile']/div/div/div[1]/a[1]/strong" - relative
+
+    //"/html/body/div[1]/div[4]/div[1]/div[2]/div/div/div[1]/a[1]/strong" - absolute
 }
