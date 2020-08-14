@@ -1,3 +1,4 @@
+
 package com.example;
 
 import com.example.configuration.reader.Config;
@@ -24,10 +25,13 @@ public class TestsConfig extends Config {
     @Property("base.url")
     private String baseUrl;
 
-    /**
+
+     /**
      * @return Test Object URL
      */
+
     public String getBaseUrl() {
         return baseUrl;
     }
 }
+
