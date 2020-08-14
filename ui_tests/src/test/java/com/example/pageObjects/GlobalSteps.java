@@ -28,12 +28,12 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
  */
 public class GlobalSteps {
     @Given("I open start page")
-    public GoogleStartPage iOpenDashboardPage() throws InterruptedException {
+    public NorthWind iOpenDashboardPage() throws InterruptedException {
 //        Base URL is read from config.properties file located in resources folder. Key is base.url
         String baseUrl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseUrl);
         Thread.sleep(3000);
-        return new GoogleStartPage();
+        return new NorthWind();
     }
 
 

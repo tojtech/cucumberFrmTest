@@ -5,9 +5,8 @@ Feature: Landing
     And I type search keyword "Hello world"
     Then I click search button
     And Verify Images tab has expected label: “Images”
-  #String myImageButton = getSearchButton().getText();
-  #myImageButton = "Images";
-    Then I verify the search results page has text "Hello World - Google Search"
+   Then I verify the search results page has text "Hello world - Google Search"
+
    # And I hit enter
 
 

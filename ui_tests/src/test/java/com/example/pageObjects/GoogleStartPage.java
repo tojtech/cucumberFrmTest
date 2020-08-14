@@ -38,21 +38,25 @@ public class GoogleStartPage extends BasePage {
     public WebElement getSearchButton() {
         return getDriver().findElement(By.cssSelector(".FPdoLc [value='Google Search']"));
     }
-   public WebElement getTitleOfPage () {
-        return getDriver().findElement(By.xpath("//title[contains(text(),'Hello World - Google Search')]"));
+    
+   public WebElement getRandomClick () {
+        return getDriver().findElement(By.xpath("//body/div/div/span/center/div[1]"));
    }
-
 
     @And("I type search keyword \"Hello world\"")
     public void iTypeIntoSearchField()  {
         String text = "Hello world";
         WebElement element = getSearchTextFieldElement();
         element.sendKeys(text);
+
     }
     @Then("I click search button")
-    public void clickSearchButton()  {
+    public void clickSearchButton() throws InterruptedException {
         //WebDriverWait wait = new WebDriverWait((WebDriver) getSearchButton(), 10);
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//body/div/div/form[@name='f']/div/div/div/center/input[1]"))).click();
+       // Thread.sleep(3000);
+       getRandomClick().click();
+        //Thread.sleep(2000);
         getSearchButton().click();
     }
     @And("Verify Images tab has expected label: “Images”")
@@ -61,14 +65,15 @@ public class GoogleStartPage extends BasePage {
         Assert.assertFalse(imageElementsList.isEmpty());
     }
 
-   @Then("^I verify the search results page has text \"([^\"]*)\"$")
-    public void   iVerifyTheSearchResultsPageIsOpened(String expectedTitle) {
-        Assert.assertEquals(getTitleOfPage().getText(), expectedTitle, "blah blah") ;
-
-
-
-
-   }}
+    @Then("^I verify the search results page has text \"([^\"]*)\"")
+    public void   iVerifyTheSearchResultsPageIsOpened(String expectedTitle) throws InterruptedException {
+        Thread.sleep(3000);
+       //Assert.assertEquals(getTitleOfPage().getText().contains(expectedTitle), "I cant find it");
+        //Assert.assertTrue(getDriver().getTitle().contains(expectedTitle), "Hello world - Google Search","I cant find it");
+        Assert.assertTrue(getDriver().getTitle().contains(expectedTitle), "search");
+        Thread.sleep(2000);
+    }
+}
 
 
     //getTitle().equals("<title>Hello World - Google Search</title>");
