@@ -18,7 +18,7 @@ public class ExamplePage extends BasePage {
      */
     public void isPageOpened() {
 //        Add verifications implemented using WebDriverWait that would be checking if the page is actually opened
-        getWait().until(ExpectedConditions.titleIs("Example Domain"));
+        getWait().until(ExpectedConditions.titleIs("Google"));
     }
 
 //    other step definitions go here
