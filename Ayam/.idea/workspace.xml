@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="95461ffc-a887-404d-ac90-8250607da190" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/libraries/annotations_13_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/libraries/selenium_api_4_0_0_alpha_6_sources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/Test1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/out/production/Test1/META-INF/Test1.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/out/test/Test1/META-INF/Test1.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/out/test/Test1/com/amriya/CssSelector.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/out/test/Test1/com/amriya/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/out/test/Test1/com/amriya/Naseem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/out/test/Test1/com/amriya/Object.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/out/test/Test1/com/amriya/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/DropDowns.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/NorthWind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dilaf/out/production/Dilaf/com/dilaf/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Dilaf/out/production/Dilaf/com/dilaf/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test1/src/com/amriya/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test1/src/com/amriya/Test1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/CssSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/CssSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/Naseem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/Naseem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Test1/src/com/amriya/com/amriya/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test1/src/com/amriya/ss.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test1/src/com/amriya/ssTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../introduction/src/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../introduction/src/Demo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../introduction/src/com/amriya/com/amriya/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../introduction/src/com/amriya/com/amriya/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../introduction/src/com/amriya/com/amriya/dsa.java" beforeDir="false" afterPath="$PROJECT_DIR$/../introduction/src/com/amriya/com/amriya/dsa.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1g65ArQGkyOW0SDIvaBYXuBjXHA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="95461ffc-a887-404d-ac90-8250607da190" name="Default Changelist" comment="" />
+      <created>1597422060681</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597422060681</updated>
+    </task>
+    <servers />
+  </component>
+</project>
