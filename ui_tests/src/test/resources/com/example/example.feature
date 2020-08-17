@@ -1,4 +1,4 @@
-Feature: Google site
+Feature: NorthWind
 
   Scenario Outline: Open start page
     Given I open index page
