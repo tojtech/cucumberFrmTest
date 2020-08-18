@@ -19,7 +19,7 @@ public abstract class BasePage {
      * This method is executed whenever new object of class is created.
      * It's done by calling the method in constructor of BasePage class
      */
-    public abstract void isPageOpened();
+    public abstract void isPageOpened() throws InterruptedException;
 
     /**
      * This constructor is called whenever a page object of a class that extends base page is created (instantiated)
@@ -41,7 +41,7 @@ public abstract class BasePage {
         new WaitForAjaxCalls(getDriver()).checkPendingRequests();
         try {
             isPageOpened();
-        } catch (WebDriverException e) {
+        } catch (WebDriverException | InterruptedException e) {
             IllegalStateException pageNotOpenedException =
                     new IllegalStateException(this.getClass().getSimpleName() + " page was not opened!\n"
                             + e.getMessage(), e.getCause());

@@ -13,47 +13,10 @@ import static com.example.CucumberHooks.getDriver;
  */
 public class GlobalSteps {
     @When("I open start page")
-    public SpiceJetStartPage iOpenDashboardPage() {
+    public NorthwindStartPage iOpenDashboardPage() {
 //        Base URL is read from config.properties file located in resources folder. Key is base.url
         String baseUrl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseUrl);
-        return new SpiceJetStartPage();
-    }
-
-    @When("sleep")
-    public void sleep() throws InterruptedException {
-        Thread.sleep(1000);
-    }
-
-    @When("I type Youtube in Search bar")
-    public void iTypeYoutubeInSearchBar() {
-    }
-
-    @Then("I see the result")
-    public void iSeeTheResult() {
-    }
-
-    @And("I type search keyword {string}")
-    public void iTypeSearchKeyword(String arg0) {
-        
-    }
-
-    @When("I hit Enter")
-    public void iHitEnter() {
-        
-    }
-
-    @Then("i verify the Search results page is opened")
-    public void iVerifyTheSearchResultsPageIsOpened() {
-        
-    }
-
-    @And("I type search keyword Youtube")
-    public void iTypeSearchKeywordYoutube() {
-        
-    }
-
-    @And("I type search keyword Youtube in search bar")
-    public void iTypeSearchKeywordYoutubeInSearchBar() {
+        return new NorthwindStartPage();
     }
 }
