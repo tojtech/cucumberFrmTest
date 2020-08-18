@@ -1,0 +1,8 @@
+<suite name="Regression TestSuit">
+    <test name="Application">
+        <classes>
+            <class name="com.example.pageObjects.Homework"></class>
+
+        </classes>
+    </test>
+</suite>

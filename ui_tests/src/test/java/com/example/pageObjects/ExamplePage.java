@@ -1,7 +1,6 @@
 package com.example.pageObjects;
 
 import com.example.BasePage;
-import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -19,8 +18,8 @@ public class ExamplePage extends BasePage {
      */
     public void isPageOpened() {
 //        Add verifications implemented using WebDriverWait that would be checking if the page is actually opened
-        getWait().until(ExpectedConditions.titleIs("Google"));
+        getWait().until(ExpectedConditions.titleIs("Example Domain"));
     }
 
-
+//    other step definitions go here
 }

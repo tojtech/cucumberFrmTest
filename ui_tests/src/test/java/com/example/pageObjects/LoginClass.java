@@ -38,7 +38,7 @@ public class LoginClass extends BasePage {
 
     @And("I type Hello Word on enter name TextBox")
     public void typeText() throws InterruptedException {
-        ElementsInteraction.sendKeys(By.id("name"), "Hello Word");
+//        ElementsInteraction.sendKeys(By.id("name"), "Hello Word");
         Thread.sleep(2000);
 
     }

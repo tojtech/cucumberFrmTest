@@ -22,7 +22,7 @@ public class TestsConfig extends Config {
     }
 
     @Property("base.url")
-    private String baseUrl;
+    private String baseUrl = getBaseUrl();
 
     /**
      * @return Test Object URL

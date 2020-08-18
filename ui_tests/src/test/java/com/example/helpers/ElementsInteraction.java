@@ -23,10 +23,11 @@ public final class ElementsInteraction {
     }
 
     public static void click(By elementLocator) {
+
         getWait().until(elementToBeClickable(elementLocator)).click();
     }
 
-    public static void sendKeys(By inputElementLocator, String text) {
+    public static void typeIntoFieldElement(By inputElementLocator, String text) {
         getWait().until(visibilityOfElementLocated(inputElementLocator)).sendKeys(text);
         new WaitForAjaxCalls(getDriver()).checkPendingRequests();
         assertElementValue(inputElementLocator, text);
