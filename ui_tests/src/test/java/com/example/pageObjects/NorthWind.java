@@ -65,12 +65,26 @@ public class NorthWind extends BasePage {
     public WebElement getSingUpFinalButton (){
         return getDriver().findElement(By.xpath("//button[@name='signUp']"));
     }
+
     @And("I click Sign In button")
     public void clickSignInButton() throws InterruptedException {
         Thread.sleep(1000);
         getCloseButton().click();
         getSignInButton().click();
     }
+
+    @And("Click “Operations” tab")
+    public void clickOperationTab() {
+        getDriver().findElement(By.xpath("//a[contains(text(),'Operations')]")).click();
+    }
+
+    @And("Click Employees")
+    public EmployeesPage clickEmployeeButton(){
+        getDriver().findElement(By.xpath("//strong[contains(text(),'Employees')]")).click();
+        return new EmployeesPage();
+    }
+
+
 
 
     @Then("go to Sign In page and confirm the page has \"Sign In Here\" header and click Sign Up button")
