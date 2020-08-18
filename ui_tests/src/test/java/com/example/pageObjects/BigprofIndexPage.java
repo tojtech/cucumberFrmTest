@@ -30,32 +30,15 @@ public class BigprofIndexPage extends BasePage {
         getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
     }
 
-    @And("^user clicks at Customers section$")
-    public CustomersPage clickToOpenCustomersPage(){
-        getTitleOfCustomersSection().click();
-        return new CustomersPage();
+    @And("^user clicks Sign In button on the top right corner$")
+    public SignupPage clickSigninButton(){
+        getSigninButton().click();
+        return new SignupPage();
     }
 
-    public WebElement getTitleOfCustomersSection(){
-        return getDriver().findElement(By.xpath("//a[@href='customers_view.php']"));
+    public WebElement getSigninButton(){
+        return getDriver().findElement(By.xpath("/html/body/div[1]/nav/div[2]/a"));
     }
 
-    @And("^user should see that Customer section title is \"([^\"]*)\"$")
-    public void isCustomerSectionTitleCorrect(String expectedTitle){
-        Assert.assertTrue(getTitleOfCustomersSection().getText().contains(expectedTitle),
-                "User should see expected Title, but instead " + getTitleOfCustomersSection().getText() + " is visible");
-    }
 
-    @When("My Login button is visible")
-    public void isLoginButtonPresent() {
-        List<WebElement> loginElementsList = getDriver().findElements(By.cssSelector(".LoginBTN"));
-
-        Assert.assertFalse(loginElementsList.isEmpty());
-    }
-
-    //public void clickSearchButton(){
-     //   getSearchButton().click();
-    //}
-
-//    other step definitions go here
 }
