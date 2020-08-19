@@ -3,6 +3,7 @@ package com.example.pageObjects;
 import com.example.BasePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,37 +33,53 @@ public class NorthWind extends BasePage {
     public WebElement getCloseButton() {
         return getDriver().findElement(By.cssSelector("button[class='btn btn-default']"));
     }
+
     public WebElement getSignInButton() {
         return getDriver().findElement(By.xpath("//a[contains(text(),'Sign In')]"));
     }
-    public WebElement getSignUpButton(){
+
+    public WebElement getSignUpButton() {
+
         return getDriver().findElement(By.xpath("//a[contains(text(),'Sign Up')]"));
     }
-    public WebElement getUsernameField () {
+
+    public WebElement getUsernameField() {
         return getDriver().findElement(By.xpath("//input[@name='newUsername']"));
     }
-    public WebElement getPasswordField (){
+
+    public WebElement getPasswordField() {
+
         return getDriver().findElement(By.xpath("//input[@name='password']"));
     }
-    public WebElement getConfirmPasswordField (){
+
+    public WebElement getConfirmPasswordField() {
         return getDriver().findElement(By.xpath("//input[@name='confirmPassword']"));
     }
-    public WebElement getEmailAddressField (){
+
+    public WebElement getEmailAddressField() {
+
         return getDriver().findElement(By.xpath("//input[@name='email']"));
     }
-    public WebElement getFullNameField (){
+
+    public WebElement getFullNameField() {
         return getDriver().findElement(By.xpath("//input[@placeholder='Full Name']"));
     }
-    public WebElement getAddressField (){
+
+    public WebElement getAddressField() {
+
         return getDriver().findElement(By.xpath("//input[@name='custom2']"));
     }
-    public WebElement getCityField (){
+
+    public WebElement getCityField() {
+
         return getDriver().findElement(By.xpath("//input[@name='custom3']"));
     }
-    public WebElement getStateField (){
+
+    public WebElement getStateField() {
         return getDriver().findElement(By.xpath("//input[@name='custom4']"));
     }
-    public WebElement getSingUpFinalButton (){
+
+    public WebElement getSingUpFinalButton() {
         return getDriver().findElement(By.xpath("//button[@name='signUp']"));
     }
 
@@ -74,38 +91,40 @@ public class NorthWind extends BasePage {
     }
 
     @And("Click “Operations” tab")
-    public void clickOperationTab() {
+    public void clickOperationTab() throws InterruptedException {
+        Thread.sleep(2000);
+        getCloseButton().click();
         getDriver().findElement(By.xpath("//a[contains(text(),'Operations')]")).click();
     }
 
-    @And("Click Employees")
-    public EmployeesPage clickEmployeeButton(){
+    @When("Click Employees")
+    public EmployeesPage clickEmployeeButton() {
         getDriver().findElement(By.xpath("//strong[contains(text(),'Employees')]")).click();
         return new EmployeesPage();
     }
 
 
-
-
     @Then("go to Sign In page and confirm the page has \"Sign In Here\" header and click Sign Up button")
-    public void  goToSignInPageAndConfirmTheSignInPageIsOpened() {
-        List <WebElement> signInHere = getDriver().findElements(By.xpath("//strong[contains(text(),'Sign In Here')]"));
+    public void goToSignInPageAndConfirmTheSignInPageIsOpened() {
+        List<WebElement> signInHere = getDriver().findElements(By.xpath("//strong[contains(text(),'Sign In Here')]"));
         Assert.assertFalse(signInHere.isEmpty());
         getSignUpButton().click();
     }
 
     @And("^enter User Name in user name field: \"([^\"]*)\"$")
-    public void enterUserName (String userName) throws InterruptedException {
+    public void enterUserName(String userName) throws InterruptedException {
         getUsernameField().sendKeys(userName);
         Thread.sleep(2000);
     }
-    @And ("^enter password  in Password field: \"([^\"]*)\"$")
-    public void enterPassword (String password) throws InterruptedException {
+
+    @And("^enter password  in Password field: \"([^\"]*)\"$")
+    public void enterPassword(String password) throws InterruptedException {
         getPasswordField().sendKeys(password);
         Thread.sleep(2000);
     }
+
     @And("^confirm password in Confirm Password field: \"([^\"]*)\"$")
-    public void confirmPassword (String password) throws InterruptedException {
+    public void confirmPassword(String password) throws InterruptedException {
         getConfirmPasswordField().sendKeys(password);
         Thread.sleep(2000);
     }
@@ -140,33 +159,4 @@ public class NorthWind extends BasePage {
         Thread.sleep(2000);
     }
 
-//    @Then("user clicks Sign Up button")
-//    public void userClicksSignUpButton() {
-//        getSignUpButton().click();
-//    }
-
-
-//
-//
-//            String emailAddressText = "mail.mail@gmail.com";
-//            WebElement emailAddress = getEmailAddressField();
-//            emailAddress.sendKeys(emailAddressText);
-//            String fullNameText = "Fruit Punch";
-//            WebElement fullName = getFullNameField();
-//            fullName.sendKeys(fullNameText);
-//            String addressText = "123 Somewhere in Never Land, we dont care";
-//            WebElement address = getAddressField();
-//            address.sendKeys(addressText);
-//            String cityText = "BlahBlah";
-//            WebElement city = getCityField();
-//            city.sendKeys(cityText);
-//            String stateText = "BLAH";
-//            WebElement state = getStateField();
-//            state.sendKeys(stateText);
-//            Thread.sleep(4000);
-    }
-
-//    @Then("I click Sign Up and transferred to a new window")
-//    public  iClickSignUpAndTransferredToANewWindow() {
-//        return new  ;
-//    }
+}
