@@ -1,5 +1,6 @@
 Feature: Google site
 
+  @Regression
   Scenario Outline: Open start page
     Given I open index page
     And user should see that Customer section title is "<title>"
