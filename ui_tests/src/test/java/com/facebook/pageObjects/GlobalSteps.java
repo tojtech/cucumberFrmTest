@@ -1,6 +1,7 @@
 package com.facebook.pageObjects;
 
 import com.facebook.TestsConfig;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -30,6 +31,7 @@ public class GlobalSteps {
         String baseUrl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseUrl);
         getDriver().manage().window().maximize();
+        Thread.sleep(2000);
         getDriver().findElement(By.xpath("//button[@class='btn btn-default']")).click();
         return new Homework();
     }
