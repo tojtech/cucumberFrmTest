@@ -1,7 +1,9 @@
 package com.facebook.pageObjects;
 
 import com.facebook.TestsConfig;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 
 import static com.facebook.CucumberHooks.getDriver;
 
@@ -21,5 +23,14 @@ public class GlobalSteps {
     @When("sleep")
     public void sleep() throws InterruptedException {
         Thread.sleep(1000);
+    }
+
+    @Given("Go to basic URL")
+    public Homework goToBasicURL() throws InterruptedException {
+        String baseUrl = TestsConfig.getConfig().getBaseUrl();
+        getDriver().get(baseUrl);
+        getDriver().manage().window().maximize();
+        getDriver().findElement(By.xpath("//button[@class='btn btn-default']")).click();
+        return new Homework();
     }
 }
