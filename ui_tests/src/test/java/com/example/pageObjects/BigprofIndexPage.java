@@ -30,6 +30,19 @@ public class BigprofIndexPage extends BasePage {
         getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
     }
 
+    @And("^user clicks Sign In button on top right corner$")
+    public SignUpPage clickSignInButton(){
+        getSignInButton().click();
+        return new SignUpPage();
+    }
+
+
+
+    /* ********************************************** GETTER ********************************************** */
+    public WebElement getSignInButton(){
+        return getDriver().findElement(By.xpath("/html//nav[@role='navigation']//a[@href='index.php?signIn=1']"));
+    }
+    /*
     @And("^user clicks at Customers section$")
     public CustomersPage clickToOpenCustomersPage(){
         getTitleOfCustomersSection().click();
@@ -57,5 +70,5 @@ public class BigprofIndexPage extends BasePage {
      //   getSearchButton().click();
     //}
 
-//    other step definitions go here
+//    other step definitions go here*/
 }

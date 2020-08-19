@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -29,55 +30,51 @@ public class SignInPage extends BasePage {
         getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
     }
 
-    @And("^user clicks at Sign Up button on top left corner$")
-    public void clickSignUpButton (){
-        getSignUpButton().click();
-    }
-
-    @And("^user fills out Sign Up form with valid data$")
-    public void fillOutSignUpForm() throws InterruptedException {
-        String userName = "rossabdu3";
-        getUserNameField().sendKeys(userName);
-        sleep(2000);
-
-        String password = "Tashkent1!";
-        getPasswordField().sendKeys(password);
-        sleep(2000);
-
-        getConfirmPasswordField().sendKeys(password);
-        sleep(2000);
-
-        String email = "hamroz.abduhoshimov@gmail.com";
-        getEmailAddressField().sendKeys(email);
-
-        String fullName = "Ross Abdu";
-        getFullNameField().sendKeys(fullName);
-
-        String address = "1600 Pennsylvania Avenue NW";
-        getAddressField().sendKeys(address);
-
-        String city = "Washington";
-        getCityField().sendKeys(city);
-
-        String state = "DC";
-        getStateField().sendKeys(state);
-    }
-
-    @When("^user submits Sign Up button on the bottom of the form$")
-    public void submitSignUpForm(){
-        getDriver().findElement(By.xpath("//button[@id='submit']")).click();
-    }
-
-    @Then("^user should be navigated to Sign In page$")
-    public void returnToSignInPage() throws InterruptedException {
-        getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
-        sleep(2000);
-    }
-
-    @And("^user Signs In by entering valid Username and Password$")
+    @When("^user Signs In by entering valid Username and Password$")
     public void logIn() throws InterruptedException{
-        WebElement usernameBox = getDriver().findElement(By.id("usernameBoxId"));
-        String textInsideUsernameBox = usernameBox.getAttribute("");
+        WebElement usernameBox = getDriver().findElement(By.id("username"));
+        String textInsideUsernameBox = usernameBox.getText();
+        if (textInsideUsernameBox.isEmpty()){
+            getDriver().findElement(By.xpath("//input[@id='username']")).sendKeys("rossabdu5"); //username should be updated before pushing code
+        }else {
+            Assert.assertEquals(textInsideUsernameBox, "rossabdu5"); //username should be updated before pushing code
+        }
+        sleep(2000);
+
+        WebElement passwordBox = getDriver().findElement(By.id("password"));
+        String textInsidePasswordBox = passwordBox.getText();
+        if (textInsidePasswordBox.isEmpty()){
+            getDriver().findElement(By.id("password")).sendKeys("Tashkent1!");
+        }
+        sleep(2000);
+
+        getDriver().findElement(By.id("rememberMe")).click();
+        sleep(1000);
+
+        getSignInButton().click();
+        sleep(2000);
+
+    }
+
+    @Then("^user expands Catalog menu on the bottom of the page$")
+    public void expandCatalog() throws InterruptedException {
+        Assert.assertEquals(getSignedInAs().getText(), "rossabdu5"); //username should be updated before pushing code
+        // scrolls down
+        JavascriptExecutor scrollDown = (JavascriptExecutor) getDriver();
+        scrollDown.executeScript("window.scrollBy(0,1500);");
+        sleep(2000);
+
+        getCatalog().click();
+
+        /*// scrolls up
+        JavascriptExecutor scrollUp = (JavascriptExecutor) getDriver();
+        scrollUp.executeScript("window.scrollBy(0,-1500);");*/
+    }
+
+    @And("^user opens Product Categories$")
+    public ProductCategoriesPage clickProductCategories() throws InterruptedException {
+        getProductCategories().click();
+        return new ProductCategoriesPage();
     }
 
     /* ********************************************** SLEEPING ******************************************************************************************************* */
@@ -86,35 +83,20 @@ public class SignInPage extends BasePage {
     public void sleep(int i) throws InterruptedException {
         Thread.sleep(2000);
     }
-    /* ********************************************** GETTER ********************************************************************************************************* */
 
-    public WebElement getSignUpButton (){
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[@class='row']//div[@class='panel-heading']/a[@href='membership_signup.php']"));
-    }
-    public WebElement getUserNameField(){
-        return getDriver().findElement(By.xpath("//input[@id='username']"));
-    }
-    public WebElement getPasswordField(){
-        return getDriver().findElement(By.xpath("//input[@id='password']"));
-    }
-    public WebElement getConfirmPasswordField(){
-        return getDriver().findElement(By.xpath("//input[@id='confirmPassword']"));
-    }
-    public WebElement getEmailAddressField(){
-        return getDriver().findElement(By.xpath("//input[@id='email']"));
-    }
-    public WebElement getFullNameField(){
-        return getDriver().findElement(By.xpath("//input[@id='custom1']"));
-    }
-    public WebElement getAddressField(){
-        return getDriver().findElement(By.xpath("//input[@id='custom2']"));
-    }
-    public WebElement getCityField(){
-        return getDriver().findElement(By.xpath("//input[@id='custom3']"));
-    }
-    public WebElement getStateField(){
-        return getDriver().findElement(By.xpath("//input[@id='custom4']"));
-    }
 
+    /* ********************************************** GETTER ********************************************** */
+    public WebElement getSignInButton(){
+        return getDriver().findElement(By.xpath("//button[@id='submit']"));
+    }
+    public WebElement getSignedInAs(){
+        return getDriver().findElement(By.xpath("/html/body/div[1]/nav/div[2]/ul[2]/p/strong/a"));
+    }
+    public WebElement getCatalog(){
+        return getDriver().findElement(By.xpath("/html/body/div[1]/a[3]"));
+    }
+    public WebElement getProductCategories(){
+        return getDriver().findElement(By.xpath("/html/body/div[1]/div[6]/div[1]/div[2]/div/div/a"));
+    }
 
 }
