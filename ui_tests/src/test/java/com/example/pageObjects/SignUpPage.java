@@ -36,7 +36,7 @@ public class SignUpPage extends BasePage {
 
     @And("^user fills out Sign Up form with valid data$")
     public void fillOutSignUpForm() throws InterruptedException {
-        String userName = "rossabdu5"; //username on SignInPage should be updated before pushing code
+        String userName = "rossabdu6"; //username on SignInPage should be updated before pushing code
         getUserNameField().sendKeys(userName);
         sleep(2000);
 

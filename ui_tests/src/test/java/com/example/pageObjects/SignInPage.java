@@ -35,9 +35,9 @@ public class SignInPage extends BasePage {
         WebElement usernameBox = getDriver().findElement(By.id("username"));
         String textInsideUsernameBox = usernameBox.getText();
         if (textInsideUsernameBox.isEmpty()){
-            getDriver().findElement(By.xpath("//input[@id='username']")).sendKeys("rossabdu5"); //username should be updated before pushing code
+            getDriver().findElement(By.xpath("//input[@id='username']")).sendKeys("rossabdu6"); //username should be updated before pushing code
         }else {
-            Assert.assertEquals(textInsideUsernameBox, "rossabdu5"); //username should be updated before pushing code
+            Assert.assertEquals(textInsideUsernameBox, "rossabdu6"); //username should be updated before pushing code
         }
         sleep(2000);
 
@@ -58,7 +58,7 @@ public class SignInPage extends BasePage {
 
     @Then("^user expands Catalog menu on the bottom of the page$")
     public void expandCatalog() throws InterruptedException {
-        Assert.assertEquals(getSignedInAs().getText(), "rossabdu5"); //username should be updated before pushing code
+        Assert.assertEquals(getSignedInAs().getText(), "rossabdu6"); //username should be updated before pushing code
         // scrolls down
         JavascriptExecutor scrollDown = (JavascriptExecutor) getDriver();
         scrollDown.executeScript("window.scrollBy(0,1500);");
