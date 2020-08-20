@@ -34,11 +34,5 @@ public class ExamplePage extends BasePage {
         getWait().until(ExpectedConditions.titleIs("Hide me!"));
 
     }
-    public void isGoogleLinkOpen(){
-        getWait().until(ExpectedConditions.titleIs("\n" +
-                "    \n" +
-                "      Hello World · GitHub Guides\n" +
-                "    \n" +
-                "  "));
-    }
+
 }
