@@ -1,18 +1,21 @@
 package com.example.pageObjects;
 
 import com.example.BasePage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import com.example.helpers.ElementsInteraction.*;
+import org.testng.Assert;
 
+import java.util.Collections;
+import java.util.List;
+
+import static com.example.CucumberHooks.getContext;
 import static com.example.CucumberHooks.getDriver;
 import static com.example.helpers.ElementsInteraction.getWait;
-import static java.lang.Thread.currentThread;
 import static java.lang.Thread.sleep;
 
 
@@ -23,15 +26,15 @@ public  class NorthWindAutomation extends BasePage{
     }
     @Then("I go through sign up process")
     public void iGoThroughSignUpProcess() throws InterruptedException {
-        WebElement signInButtonDr = signInElement();
-            signInButtonDr.click();
-        WebElement signUpButtonDr = initialPageSingUpElement();
-            signUpButtonDr.click();
+        initialPagesignInElement().click();
+        initialPageSingUpElement().click();
+
                 Thread.sleep(2000);
+
         WebElement usernameDrElement = userNameField();
-            usernameDrElement.sendKeys("admin");
+            usernameDrElement.sendKeys(usernameText());
         WebElement passWorDrElement = passwordField();
-            passWorDrElement.sendKeys("12345a");
+            passWorDrElement.sendKeys(passwordText());
         WebElement confirmPassword = confirmPasswordField();
             confirmPassword.sendKeys("12345a");
         WebElement emailDrElement = emailField();
@@ -49,9 +52,18 @@ public  class NorthWindAutomation extends BasePage{
         WebElement signUpButtonAfterFillingTheForm = signUpButton();
             signUpButtonAfterFillingTheForm.click();
     }
+    public String usernameText(){
+         String textToTypeInUserName = "admin5015";
+        return textToTypeInUserName;
+    }
+    public String passwordText(){
+        String elementsToTypeInPassword ="12345a";
+        return elementsToTypeInPassword;
+    }
 
 
-    public WebElement signInElement(){
+
+    public WebElement initialPagesignInElement(){
      return getDriver().findElement(By.cssSelector(".navbar-collapse > a"));
     }
     public WebElement initialPageSingUpElement(){
@@ -84,6 +96,19 @@ public  class NorthWindAutomation extends BasePage{
     public WebElement signUpButton(){
         return getDriver().findElement(By.cssSelector("button[id='submit']"));
     }
+    public WebElement userNameFieldToSignIn(){
+        return getDriver().findElement(By.cssSelector("input[id=username]"));
+    }
+    public WebElement passwordFieldToSignIn(){
+        return getDriver().findElement(By.cssSelector("input[id=password]"));
+    }
+    public WebElement loggingInSignUpButton(){
+        return getDriver().findElement(By.cssSelector("button[id='submit']"));
+    }
+    public WebElement OrderButtonInInitialPage(){
+        return getDriver().findElement(By.cssSelector("#orders-tile > div > div > div.btn-group > a:nth-child(1)"));
+    }
+
 
     @When("sleep and close popup")
     public void sleepClosePopup() throws InterruptedException {
@@ -95,7 +120,79 @@ public  class NorthWindAutomation extends BasePage{
 
     @Then("logging in to the site")
     public void loggingInToTheSite() {
+        WebElement usernameFieldDr=userNameFieldToSignIn();
+        usernameFieldDr.sendKeys(usernameText());
+        WebElement passwordFieldDr=passwordFieldToSignIn();
+        passwordFieldDr.sendKeys(passwordText());
+        loggingInSignUpButton().click();
+    }
 
+    @When("longer sleep")
+    public void sleep() throws InterruptedException {
+        Thread.sleep(4000);
+    }
+
+    @And("I verify user is logged in")
+    public void iVerifyUserIsLoggedIn() {
+        String actualResult = getDriver().findElement(By.cssSelector("ul.nav.navbar-nav.navbar-right.hidden-xs > p > strong > a")).getText();
+        Assert.assertTrue(actualResult.contains(usernameText()));
+    }
+
+    @And("Verify that description of Orders section contains required text")
+    public void verifyThatDescriptionOfOrdersSectionContainsRequiredText() {
+        WebElement fieldToVerify = getDriver().findElement(By.cssSelector("a[title='The customers table contains a list of imaginary customers of the Northwind company. You can also access the imaginary orders made by each customer here.']"));
+        Assert.assertTrue(fieldToVerify.isDisplayed());
+    }
+
+    @And("I click to Orders")
+    public void iClickToOrders() throws InterruptedException {
+        OrderButtonInInitialPage().click();
+        Thread.sleep(2000);
+    }
+
+
+    @And("Verify User is on Orders page")
+    public void verifyUserIsOnOrdersPage() {
+        List<WebElement> ifOrderPageIsOpen = getDriver().findElements(By.cssSelector("a[style='text-decoration: none; color: inherit;']"));
+        Assert.assertFalse(( ifOrderPageIsOpen).isEmpty());
+    }
+
+    @And("I scroll down and click NEXT button at bottom right corner")
+    public void iClickNEXTButtonAtBottomRightCorner() {
+        JavascriptExecutor scrollDown = (JavascriptExecutor) getDriver();
+        scrollDown.executeScript("window.scrollBy(0,1500);");
+        WebElement nextButton=getDriver().findElement(By.cssSelector("#Next"));
+        nextButton.click();
+    }
+
+    @And("I Click Order ID")
+    public void iClickOrderID() {
+        WebElement id11067Field = getDriver().findElement(By.cssSelector("#orders-OrderID-11067>a"));
+        id11067Field.click();
+    }
+
+    @And("I verify particular order page has been opened")
+    public void iVerifyParticularOrderPageHasBeenOpened() {
+        List<WebElement> isId11067Opened = getDriver().findElements(By.cssSelector("a[style='text-decoration: none; color: inherit;']"));
+        Assert.assertFalse((isId11067Opened).isEmpty());
+    }
+
+    @And("Is status is Shipped")
+    public void isStatusIsShipped() {
+        String shipField = getDriver().findElement(By.cssSelector("#status > span")).getText();
+        Assert.assertTrue(shipField.contains("Shipped"));
+    }
+
+    @And("I click Back button on that order page")
+    public void iClickBackButtonOnThatOrderPage() {
+        WebElement backButtonField = getDriver().findElement(By.cssSelector("button[id='deselect']"));
+        backButtonField.click();
+    }
+
+    @Then("I verify you’re landed back to Orders page")
+    public void iVerifyYouReLandedBackToOrdersPage() {
+        List<WebElement> backToOrderPage = getDriver().findElements(By.cssSelector("a[style='text-decoration: none; color: inherit;']"));
+        Assert.assertFalse(( backToOrderPage).isEmpty());
     }
 }
 
