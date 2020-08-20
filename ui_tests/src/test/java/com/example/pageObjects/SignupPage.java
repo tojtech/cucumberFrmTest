@@ -37,7 +37,7 @@ public class SignupPage extends BasePage {
 
     @And("^user fills out Sign Up form$")
     public void fillSignupForm() throws InterruptedException {
-        String username = "jaime2"; //NOTE before each execution remember to change username
+        String username = "jaime3"; //NOTE before each execution remember to change username
         getUsernameBox().sendKeys(username);
         Thread.sleep(2000);
 
@@ -108,6 +108,15 @@ public class SignupPage extends BasePage {
 
 
 
+// EXTRAS
+    ////scrolls down
+    // JavascriptExecutor js = (JavascriptExecutor) getDriver();
+    //        js.executeScript("window.scrollBy(0,1500);");
+    //
+    // add thread sleep 2000 in between
 
+    //// scrolls up
+    //JavascriptExecutor js = (JavascriptExecutor) getDriver();
+    //        js.executeScript("window.scrollBy(0,-1500);");
 
 }
