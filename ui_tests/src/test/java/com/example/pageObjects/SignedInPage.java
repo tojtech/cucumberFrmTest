@@ -20,7 +20,7 @@ import static com.example.CucumberHooks.getDriver;
  * It extends the BasePage abstract class that implements common logic for page loading.
  * It also forces you to add isPageOpened method that is executed on creation of page object instance (object of class)
  */
-public class SignupPage extends BasePage {
+public class SignedInPage extends BasePage {
     /**
      * This method is executed whenever new object of class is created.
      * It's done by calling the method in constructor of BasePage class
@@ -30,93 +30,92 @@ public class SignupPage extends BasePage {
         getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
     }
 
-    @And("^user clicks at Sign Up button on the top right corner$")
-    public void clickSignupButton(){
-        getSignup().click();
-    }
-
-    @And("^user fills out Sign Up form$")
-    public void fillSignupForm() throws InterruptedException {
+    @And("^user verifies he is logged in$")
+    public void verifyLogin() throws InterruptedException {
         String username = "jaime3"; //NOTE before each execution remember to change username
         getUsernameBox().sendKeys(username);
         Thread.sleep(2000);
 
         String password = "Showroom654";
         getPassword().sendKeys(password);
-        getConfirmPassword().sendKeys(password);
         Thread.sleep(2000);
 
-        String emailAddress = "jalencastro@hotmail.com";
-        getEmailAddress().sendKeys(emailAddress);
-        Thread.sleep(2000);
+        getSignInButton().click();
 
-        String fullName = "Jaime Tojtech";
-        getFullName().sendKeys(fullName);
-        Thread.sleep(2000);
-
-        String address = "123 Fairytale Lane";
-        getAddress().sendKeys(address);
-        Thread.sleep(2000);
-
-        String city = "Lefrak";
-        getCity().sendKeys(city);
-        Thread.sleep(2000);
-
-        String state = "New York";
-        getState().sendKeys(state);
-        Thread.sleep(2000);
-    }
-    @And("^user clicks Sign Up button on bottom of page$")
-    public void submitSignupButton() throws InterruptedException {
-        getSignUpButton().click();
-        Thread.sleep(10000);
+        Assert.assertEquals(getVerifiedUsername().getText(), "jaime3");
     }
 
+    @And("^verify description of Orders contains \"([^\"]*)\"$")
+    public void verifyOrdersDescription(String ordersText) throws InterruptedException {
+        Assert.assertTrue(getOrderText().getText().contains(ordersText));
+        Thread.sleep(2000);
+    }
+
+    @And("^user clicks on Orders button$")
+    public void clickOrdersButton() throws InterruptedException {
+        getClickOrdersButton().click();
+        Thread.sleep(2000);
+    }
+
+    @And("^user verifies Orders page is opened$")
+    public void verifyOrdersPageOpened(){
+        Assert.assertEquals(getDriver().getTitle(), "Northwind | Orders");
+    }
+
+    //Northwind | Orders
 
 // ********************** GETTERS *****************
 
-    public WebElement getSignup(){
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[1]/a"));
-    }
     public WebElement getUsernameBox() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[1]/input"));
+        return getDriver().findElement(By.xpath("//input[@id='username']"));
     }
+
     public WebElement getPassword() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[2]/div[1]/div/input"));
+        return getDriver().findElement(By.xpath("//input[@id='password']"));
     }
+
     public WebElement getConfirmPassword() {
         return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[2]/div[2]/div/input"));
     }
+
     public WebElement getEmailAddress() {
         return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[3]/input"));
     }
+
     public WebElement getFullName() {
         return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[5]/div[2]/input"));
     }
+
     public WebElement getAddress() {
         return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[6]/div[2]/input"));
     }
-    public WebElement getCity() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[7]/div[2]/input"));
-    }
-    public WebElement getState() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[8]/div[2]/input"));
-    }
-    public WebElement getSignUpButton() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[9]/div/button"));
+
+    public WebElement getOrderText() {
+        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/div[2]/div/div/div[2]"));
     }
 
+    public WebElement getVerifiedUsername() {
+        return getDriver().findElement(By.xpath("/html/body/div[1]/nav/div[2]/ul[2]/p/strong/a"));
+    }
 
+    public WebElement getSignInButton() {
+        return getDriver().findElement(By.xpath("//button[@id='submit']"));
+    }
+
+    public WebElement getClickOrdersButton() {
+        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/div[2]/div/div/div[1]/a[1]/strong"));
+    }
 
 // EXTRAS
-    ////scrolls down
-    // JavascriptExecutor scrollDown = (JavascriptExecutor) getDriver();
-    //        scrollDown.executeScript("window.scrollBy(0,1500);");
-    //
-    // add thread sleep 2000 in between
+        ////scrolls down
+        // JavascriptExecutor scrollDown = (JavascriptExecutor) getDriver();
+        //        scrollDown.executeScript("window.scrollBy(0,1500);");
+        //
+        // add thread sleep 2000 in between
 
-    //// scrolls up
-    //JavascriptExecutor scrollUp = (JavascriptExecutor) getDriver();
-    //        scrollUp.executeScript("window.scrollBy(0,-1500);");
+        //// scrolls up
+        //JavascriptExecutor scrollUp = (JavascriptExecutor) getDriver();
+        //        scrollUp.executeScript("window.scrollBy(0,-1500);");
+
 
 }
