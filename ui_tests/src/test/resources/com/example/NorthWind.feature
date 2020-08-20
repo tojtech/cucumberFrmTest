@@ -1,5 +1,5 @@
 Feature: Landing
-
+@Smoke
   Scenario: Open start page
     Given I open start page
     And I click Sign In button

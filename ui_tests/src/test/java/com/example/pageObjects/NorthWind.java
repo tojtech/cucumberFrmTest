@@ -14,24 +14,13 @@ import java.util.List;
 import static com.example.CucumberHooks.getDriver;
 import static com.example.helpers.ElementsInteraction.getWait;
 
-/**
- * Name of the page represents the web page name.
- * It extends the BasePage abstract class that implements common logic for page loading.
- * It also forces you to add isPageOpened method that is executed on creation of page object instance (object of class)
- */
+
 
 public class NorthWind extends BasePage {
-    /**
-     * This method is executed whenever new object of class is created.
-     * It's done by calling the method in constructor of BasePage class
-     */
+
     public void isPageOpened() {
 //        Add verifications implemented using WebDriverWait that would be checking if the page is actually opened
         getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
-    }
-
-    public WebElement getCloseButton() {
-        return getDriver().findElement(By.cssSelector("button[class='btn btn-default']"));
     }
 
     public WebElement getSignInButton() {
@@ -84,20 +73,16 @@ public class NorthWind extends BasePage {
     }
 
     @And("I click Sign In button")
-    public void clickSignInButton() throws InterruptedException {
-        Thread.sleep(1000);
-        getCloseButton().click();
+    public void clickSignInButton()  {
         getSignInButton().click();
     }
 
-    @And("Click “Operations” tab")
+    @And("click “Operations” tab")
     public void clickOperationTab() throws InterruptedException {
-        Thread.sleep(2000);
-        getCloseButton().click();
         getDriver().findElement(By.xpath("//a[contains(text(),'Operations')]")).click();
     }
 
-    @When("Click Employees")
+    @When("click Employees")
     public EmployeesPage clickEmployeeButton() {
         getDriver().findElement(By.xpath("//strong[contains(text(),'Employees')]")).click();
         return new EmployeesPage();

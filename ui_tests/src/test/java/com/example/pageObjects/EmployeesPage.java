@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import java.util.List;
-
 import static com.example.CucumberHooks.getDriver;
 import static com.example.helpers.ElementsInteraction.getWait;
 
@@ -31,21 +29,44 @@ public class EmployeesPage extends BasePage {
         getWait().until(ExpectedConditions.titleIs("Northwind | Employees"));
     }
     public WebElement getGoToPageDropDown(){
-        getDriver().findElement(By.className("input-sm ltr"));
-        return getGoToPageDropDown();
+        return  getDriver().findElement(By.className("input-sm ltr"));
+
     }
+    public WebElement getRecordsLabel(){
+        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/form/div[3]/div/div[1]/table/tfoot/tr/td"));  //MISSING DATA!!!
+
+    }
+    public WebElement getTablePage2(){
+        return getDriver().findElement(By.cssSelector("tbody"));
+    }
+    public WebElement getEmployeesPageVer(){
+        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/form/div[1]/h1/div/div[1]/a"));
+    }
+    public WebElement getPreviousButton() {
+        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/form/div[3]/div/div[2]/div[1]/button/span"));
+    }
+    public WebElement getTablePage1(){
+        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/form/div[3]/div/div[1]/table/tbody"));
+    }
+    public WebElement getNorthWindButton(){
+        return getDriver().findElement(By.xpath("/html/body/div[1]/nav/div[1]/a"));
+    }
+    public WebElement getExpandedSalesTab(){
+        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]"));
+    }
+
+
 
     @Then("Employees page is opened")
     public void iVerifyEmployeePageIsOpened(){
-        List<WebElement> employeePageHeader = getDriver().findElements(By.xpath("//h1"));
-        Assert.assertFalse(employeePageHeader.isEmpty());
+       // List<WebElement> employeePageHeader = getDriver().findElements(By.xpath("//h1"));
+       // Assert.assertFalse(employeePageHeader.isEmpty());
+        Assert.assertEquals(getEmployeesPageVer().getText(), "Employees");
 
     }
 
-
-    @And("Go to last page using pagination drop-down")
-    public void goToLastPageUsingPaginationDropDown() throws InterruptedException {
-        //JavascriptExecutor js = (JavascriptExecutor)getDriver();
+    @And("^go to last page using pagination drop-down$")
+    public void goToLastPage() throws InterruptedException {
       WebElement drop = getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/form/div[3]/div/div[2]/div[2]/select"));
 
         Actions actions = new Actions(getDriver());
@@ -56,15 +77,36 @@ public class EmployeesPage extends BasePage {
         Thread.sleep(3000);
     }
 
-    @Then("verify there are four rows are available")
-    public void verifyThereAreRowsAreAvailable() {
-        WebElement simpleTable = getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/form/div[3]/div/div[1]/table"));
-        List<WebElement> tableRows = simpleTable.findElements(By.tagName("tr"));
-        for (WebElement row:tableRows){
-            System.out.println("THIS MANY ROWS:"+ row);
-        }
-        //Assert.assertEquals();
+    @Then("^verify there are four rows are available$")
+    public void verifyFourRows() {
+        Assert.assertTrue(getTablePage2().isDisplayed());
+    }
+        // List<WebElement> tableRows = simpleTable.findElements(By.tagName("tr"));
+        // for (int i = 1; i <= 4; i++) {
+            //Assert.assertFalse(i);
+            //Assert.assertEquals();
 
+        @And("^verify label Records at the bottom of the table$")
+      public void verifyLabelRecords() {
+       String s = "Records";
+            Assert.assertTrue(getRecordsLabel().getText().contains(s));
+    }
+    @And("^click “Previous” button$")
+    public void clickPreviousButton() {
+        getPreviousButton().click();
+    }
+    @And("^verify, that 5 previous rows are displayed$")
+        public void verifyTable1(){
+        Assert.assertTrue(getTablePage1().isDisplayed());
+    }
 
+    @And("^click “NorthWind” icon$")
+    public void clickNorthWindIcon() {
+        getNorthWindButton().click();
+    }
+
+    @And("^verify “Sales” tab is expanded$")
+    public void verifySalesTab() {
+        Assert.assertTrue(getExpandedSalesTab().isDisplayed());
     }
 }
