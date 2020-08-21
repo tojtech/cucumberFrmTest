@@ -159,7 +159,7 @@ public  class NorthWindAutomation extends BasePage{
             id11067Field.click();
     }
 
-    @And("I verify particular order page has been opened")
+    @And("I verify particular Order page has been opened")
     public void iVerifyParticularOrderPageHasBeenOpened() {
         List<WebElement> isId11067Opened = getDriver().findElements(By.cssSelector("a[style='text-decoration: none; color: inherit;']"));
         Assert.assertFalse((isId11067Opened).isEmpty());
@@ -177,7 +177,7 @@ public  class NorthWindAutomation extends BasePage{
             backButtonField.click();
     }
 
-    @Then("I verify you’re landed back to Orders page")
+    @Then("I verify if user landed back to Orders page")
     public void iVerifyYouReLandedBackToOrdersPage() {
         List<WebElement> backToOrderPage = getDriver().findElements(By.cssSelector("a[style='text-decoration: none; color: inherit;']"));
         Assert.assertFalse(( backToOrderPage).isEmpty());

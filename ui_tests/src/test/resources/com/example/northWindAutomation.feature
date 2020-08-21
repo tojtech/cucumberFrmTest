@@ -12,7 +12,7 @@ Feature: NorthWind
     And Verify User is on Orders page
     And I scroll down and click NEXT button at bottom right corner
     And I Click Order ID
-    And I verify particular order page has been opened
+    And I verify particular Order page has been opened
     And Is status is Shipped
     And I click Back button on that order page
-    Then I verify you’re landed back to Orders page
+    Then I verify if user landed back to Orders page

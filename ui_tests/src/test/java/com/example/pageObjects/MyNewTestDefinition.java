@@ -13,7 +13,7 @@ import java.util.List;
 import static com.example.CucumberHooks.getDriver;
 import static com.example.helpers.ElementsInteraction.getWait;
 
-
+//Switch base URL to Google in order to run these codes
  public class MyNewTestDefinition extends BasePage {
 
     public void isPageOpened() {
