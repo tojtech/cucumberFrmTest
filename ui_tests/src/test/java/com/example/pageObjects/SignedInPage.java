@@ -32,7 +32,7 @@ public class SignedInPage extends BasePage {
 
     @And("^user verifies he is logged in$")
     public void verifyLogin() throws InterruptedException {
-        String username = "jaime3"; //NOTE before each execution remember to change username
+        String username = "jaime1"; //NOTE before each execution remember to change username
         getUsernameBox().sendKeys(username);
         Thread.sleep(2000);
 
@@ -42,7 +42,7 @@ public class SignedInPage extends BasePage {
 
         getSignInButton().click();
 
-        Assert.assertEquals(getVerifiedUsername().getText(), "jaime3");
+        Assert.assertEquals(getVerifiedUsername().getText(), "jaime1");
     }
 
     @And("^verify description of Orders contains \"([^\"]*)\"$")
@@ -62,7 +62,36 @@ public class SignedInPage extends BasePage {
         Assert.assertEquals(getDriver().getTitle(), "Northwind | Orders");
     }
 
+    @And("^user clicks Sales dropdown at the header$")
+    public void clickSalesDropdown() throws InterruptedException {
+        getClickSalesDropdown().click();
+        Thread.sleep(2000);
+    }
+
+    @And("^user then clicks Customers from that dropdown$")
+    public void clickCustomersFromDropdown() throws InterruptedException {
+        getClickCustomersFromDropdown().click();
+        Thread.sleep(2000);
+    }
+
+    @And("^user verifies Customers page is opened$")
+    public void verifyCustomersPageOpened(){
+        Assert.assertEquals(getDriver().getTitle(), "Northwind | Customers");
+    }
+
+    @And("^user clicks on Customer ID Anton$")
+    public void clickCustomerAnton() throws InterruptedException {
+        getClickCustomerAnton().click();
+        Thread.sleep(2000);
+    }
+
+    @And("^user verifies Anton customer page is opened$")
+    public void verifyAntonOpened(){
+        Assert.assertEquals(getVerifiedAnton().getText(), "ANTON");
+    }
+
     //Northwind | Orders
+    //Northwind | Customers
 
 // ********************** GETTERS *****************
 
@@ -78,16 +107,16 @@ public class SignedInPage extends BasePage {
         return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[2]/div[2]/div/input"));
     }
 
-    public WebElement getEmailAddress() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[3]/input"));
+    public WebElement getClickCustomerAnton() {
+        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/form/div[3]/div/div[1]/table/tbody/tr[3]/td[2]/a"));
     }
 
-    public WebElement getFullName() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[5]/div[2]/input"));
+    public WebElement getClickCustomersFromDropdown() {
+        return getDriver().findElement(By.xpath("/html/body/div[1]/nav/div[2]/ul[1]/li[1]/ul/li[1]/a"));
     }
 
-    public WebElement getAddress() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[6]/div[2]/input"));
+    public WebElement getClickSalesDropdown() {
+        return getDriver().findElement(By.xpath("/html/body/div[1]/nav/div[2]/ul[1]/li[1]/a"));
     }
 
     public WebElement getOrderText() {
@@ -104,6 +133,10 @@ public class SignedInPage extends BasePage {
 
     public WebElement getClickOrdersButton() {
         return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/div[2]/div/div/div[1]/a[1]/strong"));
+    }
+
+    public WebElement getVerifiedAnton() {
+        return getDriver().findElement(By.xpath("//div[@id='CustomerID']"));
     }
 
 // EXTRAS

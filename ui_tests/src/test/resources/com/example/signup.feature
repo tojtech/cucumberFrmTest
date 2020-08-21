@@ -10,3 +10,8 @@ Feature: Northwind Task
     And verify description of Orders contains "Orders placed by customers, with newest orders listed first."
     And user clicks on Orders button
     And user verifies Orders page is opened
+    And user clicks Sales dropdown at the header
+    And user then clicks Customers from that dropdown
+    And user verifies Customers page is opened
+    And user clicks on Customer ID Anton
+    And user verifies Anton customer page is opened
