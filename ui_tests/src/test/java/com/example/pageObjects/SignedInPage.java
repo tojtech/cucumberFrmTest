@@ -90,8 +90,6 @@ public class SignedInPage extends BasePage {
         Assert.assertEquals(getVerifiedAnton().getText(), "ANTON");
     }
 
-    //Northwind | Orders
-    //Northwind | Customers
 
 // ********************** GETTERS *****************
 
@@ -101,10 +99,6 @@ public class SignedInPage extends BasePage {
 
     public WebElement getPassword() {
         return getDriver().findElement(By.xpath("//input[@id='password']"));
-    }
-
-    public WebElement getConfirmPassword() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[2]/div/div[2]/form/div[2]/div[2]/div/input"));
     }
 
     public WebElement getClickCustomerAnton() {
