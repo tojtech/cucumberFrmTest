@@ -29,7 +29,7 @@ public  class NorthWindAutomation extends BasePage{
         initialPagesignInElement().click();
         initialPageSingUpElement().click();
 
-                Thread.sleep(2000);
+        Thread.sleep(2000);
 
         WebElement usernameDrElement = userNameField();
             usernameDrElement.sendKeys(usernameText());
@@ -53,16 +53,13 @@ public  class NorthWindAutomation extends BasePage{
             signUpButtonAfterFillingTheForm.click();
     }
     public String usernameText(){
-         String textToTypeInUserName = "admin5015";
+         String textToTypeInUserName = "admin5019";
         return textToTypeInUserName;
     }
     public String passwordText(){
         String elementsToTypeInPassword ="12345a";
         return elementsToTypeInPassword;
     }
-
-
-
     public WebElement initialPagesignInElement(){
      return getDriver().findElement(By.cssSelector(".navbar-collapse > a"));
     }
