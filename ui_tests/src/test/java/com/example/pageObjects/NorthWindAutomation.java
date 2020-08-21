@@ -9,27 +9,21 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-
-import java.util.Collections;
 import java.util.List;
-
-import static com.example.CucumberHooks.getContext;
 import static com.example.CucumberHooks.getDriver;
 import static com.example.helpers.ElementsInteraction.getWait;
-import static java.lang.Thread.sleep;
 
 
 public  class NorthWindAutomation extends BasePage{
     public void isPageOpened()  {
-
         getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
     }
+
     @Then("I go through sign up process")
     public void iGoThroughSignUpProcess() throws InterruptedException {
         initialPagesignInElement().click();
         initialPageSingUpElement().click();
-
-        Thread.sleep(2000);
+            Thread.sleep(2000);
 
         WebElement usernameDrElement = userNameField();
             usernameDrElement.sendKeys(usernameText());
@@ -47,26 +41,25 @@ public  class NorthWindAutomation extends BasePage{
            cityDrElement.sendKeys("Nyc");
         WebElement stateDrElement=stateField();
             stateDrElement.sendKeys("NY");
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
-        js.executeScript("window.scrollBy(0,1500);");
+        JavascriptExecutor scrollingDown = (JavascriptExecutor) getDriver();
+             scrollingDown.executeScript("window.scrollBy(0,1500);");
         WebElement signUpButtonAfterFillingTheForm = signUpButton();
             signUpButtonAfterFillingTheForm.click();
     }
     public String usernameText(){
         //Change username for each run
-         String textToTypeInUserName = "admin5020";
-        return textToTypeInUserName;
+         String textToTypeInUserName = "admin5021";
+         return textToTypeInUserName;
     }
     public String passwordText(){
         String elementsToTypeInPassword ="12345a";
         return elementsToTypeInPassword;
     }
     public WebElement initialPagesignInElement(){
-     return getDriver().findElement(By.cssSelector(".navbar-collapse > a"));
+        return getDriver().findElement(By.cssSelector(".navbar-collapse > a"));
     }
     public WebElement initialPageSingUpElement(){
-        return getDriver().findElement(By.cssSelector("div.panel-heading > a"));
-    }
+        return getDriver().findElement(By.cssSelector("div.panel-heading > a")); }
     public WebElement userNameField(){
         return getDriver().findElement(By.cssSelector("input[id='username']"));
     }
@@ -74,15 +67,14 @@ public  class NorthWindAutomation extends BasePage{
         return getDriver().findElement(By.cssSelector("input[id=password]"));
     }
     public WebElement confirmPasswordField(){
-        return getDriver().findElement(By.cssSelector("input[id=confirmPassword]"));
-    }
+        return getDriver().findElement(By.cssSelector("input[id=confirmPassword]")); }
     public WebElement emailField(){
         return getDriver().findElement(By.cssSelector("input[id=email]"));
     }
-    public WebElement fullNameField(){
+    public WebElement fullNameField() {
         return getDriver().findElement(By.cssSelector("input[id=custom1]"));
     }
-    public WebElement addressField(){
+    public WebElement addressField() {
         return getDriver().findElement(By.cssSelector("input[id=custom2]"));
     }
     public WebElement cityField(){
@@ -107,21 +99,20 @@ public  class NorthWindAutomation extends BasePage{
         return getDriver().findElement(By.cssSelector("#orders-tile > div > div > div.btn-group > a:nth-child(1)"));
     }
 
-
     @When("sleep and close popup")
     public void sleepClosePopup() throws InterruptedException {
-        Thread.sleep(1000);
+            Thread.sleep(1000);
         WebElement closeButtonOnModal = getDriver().findElement(By.xpath("//div[@class='modal-footer']/button"));
-        Thread.sleep(2000);
+            Thread.sleep(2000);
         closeButtonOnModal.click();
     }
 
     @Then("logging in to the site")
     public void loggingInToTheSite() {
         WebElement usernameFieldDr=userNameFieldToSignIn();
-        usernameFieldDr.sendKeys(usernameText());
+            usernameFieldDr.sendKeys(usernameText());
         WebElement passwordFieldDr=passwordFieldToSignIn();
-        passwordFieldDr.sendKeys(passwordText());
+            passwordFieldDr.sendKeys(passwordText());
         loggingInSignUpButton().click();
     }
 
@@ -145,9 +136,8 @@ public  class NorthWindAutomation extends BasePage{
     @And("I click to Orders")
     public void iClickToOrders() throws InterruptedException {
         OrderButtonInInitialPage().click();
-        Thread.sleep(2000);
+            Thread.sleep(2000);
     }
-
 
     @And("Verify User is on Orders page")
     public void verifyUserIsOnOrdersPage() {
@@ -158,15 +148,15 @@ public  class NorthWindAutomation extends BasePage{
     @And("I scroll down and click NEXT button at bottom right corner")
     public void iClickNEXTButtonAtBottomRightCorner() {
         JavascriptExecutor scrollDown = (JavascriptExecutor) getDriver();
-        scrollDown.executeScript("window.scrollBy(0,1500);");
+            scrollDown.executeScript("window.scrollBy(0,1500);");
         WebElement nextButton=getDriver().findElement(By.cssSelector("#Next"));
-        nextButton.click();
+            nextButton.click();
     }
 
     @And("I Click Order ID")
     public void iClickOrderID() {
         WebElement id11067Field = getDriver().findElement(By.cssSelector("#orders-OrderID-11067>a"));
-        id11067Field.click();
+            id11067Field.click();
     }
 
     @And("I verify particular order page has been opened")
@@ -184,7 +174,7 @@ public  class NorthWindAutomation extends BasePage{
     @And("I click Back button on that order page")
     public void iClickBackButtonOnThatOrderPage() {
         WebElement backButtonField = getDriver().findElement(By.cssSelector("button[id='deselect']"));
-        backButtonField.click();
+            backButtonField.click();
     }
 
     @Then("I verify you’re landed back to Orders page")
