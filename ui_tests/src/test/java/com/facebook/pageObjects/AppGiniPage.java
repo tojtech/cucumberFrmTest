@@ -11,14 +11,14 @@ import static com.facebook.helpers.ElementsInteraction.getWait;
  * It extends the BasePage abstract class that implements common logic for page loading.
  * It also forces you to add isPageOpened method that is executed on creation of page object instance (object of class)
  */
-public class StartPage extends BasePage {
+public class AppGiniPage extends BasePage {
     /**
      * This method is executed whenever new object of class is created.
      * It's done by calling the method in constructor of BasePage class
      */
     public void isPageOpened() {
 //        Add verifications implemented using WebDriverWait that would be checking if the page is actually opened
-        getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
+        getWait().until(ExpectedConditions.titleIs("AppGini, web database applications builder without coding"));
     }
 
 //    other step definitions go here
