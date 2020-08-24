@@ -48,7 +48,7 @@ public  class NorthWindAutomation extends BasePage{
     }
     public String usernameText(){
         //Change username for each run
-         String textToTypeInUserName = "admin5028";
+         String textToTypeInUserName = "admin5029";
          return textToTypeInUserName;
     }
     public String passwordText(){
@@ -77,7 +77,7 @@ public  class NorthWindAutomation extends BasePage{
     public WebElement addressField() {
         return getDriver().findElement(By.cssSelector("input[id=custom2]"));
     }
-    public WebElement cityField(){
+    public WebElement cityField() {
         return getDriver().findElement(By.cssSelector("input[id=custom3]"));
     }
     public WebElement stateField(){
