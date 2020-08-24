@@ -48,7 +48,7 @@ public  class NorthWindAutomation extends BasePage{
     }
     public String usernameText(){
         //Change username for each run
-         String textToTypeInUserName = "admin5021";
+         String textToTypeInUserName = "admin5028";
          return textToTypeInUserName;
     }
     public String passwordText(){
@@ -141,8 +141,7 @@ public  class NorthWindAutomation extends BasePage{
 
     @And("Verify User is on Orders page")
     public void verifyUserIsOnOrdersPage() {
-        List<WebElement> ifOrderPageIsOpen = getDriver().findElements(By.cssSelector("a[style='text-decoration: none; color: inherit;']"));
-        Assert.assertFalse(( ifOrderPageIsOpen).isEmpty());
+        getWait().until(ExpectedConditions.titleIs("Northwind | Orders"));
     }
 
     @And("I scroll down and click NEXT button at bottom right corner")

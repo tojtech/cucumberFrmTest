@@ -23,7 +23,6 @@ public class GlobalSteps {
         getDriver().manage().window().maximize();
         getDriver().get(baseUrl);
         return new NorthWindTest();
-
     }
 
     @When("sleep")
