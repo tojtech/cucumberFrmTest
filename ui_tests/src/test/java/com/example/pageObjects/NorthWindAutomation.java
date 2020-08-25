@@ -48,7 +48,7 @@ public  class NorthWindAutomation extends BasePage{
     }
     public String usernameText(){
         //Change username for each run
-         String textToTypeInUserName = "admin5037";
+         String textToTypeInUserName = "admin5038";
          return textToTypeInUserName;
     }
     public String passwordText(){
