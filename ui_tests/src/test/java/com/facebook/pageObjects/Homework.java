@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static com.facebook.CucumberHooks.getDriver;
@@ -137,7 +138,8 @@ public class Homework extends BasePage {
         System.out.println("10 rows are \"Meat/Poultry / Pavlova\" is verified");
 
     }
-}
+
+    }
 
 
 
