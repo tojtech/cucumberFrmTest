@@ -42,7 +42,6 @@ public class GlobalSteps {
         getDriver().get(baseUrl);
         return new MyNewTestDefinition();
     }
-
-
 }
+
 
