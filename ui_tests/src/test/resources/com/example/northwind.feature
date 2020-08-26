@@ -13,7 +13,7 @@ Feature: Northwind
     And Verify User is on Orders page
     And i click SALES dropdown at the header and click Customers from that dropdown
     And Verify Customers page is opened
-    And Click at Customer ID “ANTON“
+    And Click at Customer ID “ANTON“ Verify that particular Customer page is opened
 
 
 
@@ -26,4 +26,4 @@ Feature: Northwind
 
 
 
-#  12. Verify that particular Customer page is opened
+

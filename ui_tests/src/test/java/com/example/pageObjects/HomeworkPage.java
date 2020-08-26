@@ -38,13 +38,14 @@ public class HomeworkPage extends BasePage {
         Thread.sleep(2000);
     }
 
-        public void SendKeysTo(By elementInput, String text){
-        getDriver().findElement(elementInput).sendKeys(text);
- }
- String loginE = "NorthwindNaseem8";
+    //public void SendKeysTo(By elementInput, String text) {
+    //getDriver().findElement(elementInput).sendKeys(text);
+    //}
+
+    String loginE = "NorthwindNaseem8";
 
 
-    public WebElement getPopupElement(){
+    public WebElement getPopupElement() {
         return getDriver().findElement(By.cssSelector("button[class='close']"));
     }
 
@@ -72,7 +73,7 @@ public class HomeworkPage extends BasePage {
     }
 
     @And("I click on Sign up button on the top right corner")
-    public void clickSignUpElement(){
+    public void clickSignUpElement() {
         getSignUpElement().click();
     }
 
@@ -102,6 +103,7 @@ public class HomeworkPage extends BasePage {
         getDriver().findElement(By.cssSelector("p[class='navbar-text']")).getText();
         Thread.sleep(2000);
     }
+
     @And("i verify User is logged in")
     public void iVerifyUserIsLoggedIn() {
         getDriver().findElement(By.cssSelector("p[class='navbar-text']")).getText();
@@ -123,7 +125,7 @@ public class HomeworkPage extends BasePage {
 
     @And("Verify User is on Orders page")
     public void verifyUserIsOnOrdersPage() {
-        Assert.assertEquals(getDriver().getCurrentUrl(),"https://bigprof.com/demo/orders_view.php","It's not valid");
+        Assert.assertEquals(getDriver().getCurrentUrl(), "https://bigprof.com/demo/orders_view.php", "It's not valid");
     }
 
     @And("i click SALES dropdown at the header and click Customers from that dropdown")
@@ -137,15 +139,14 @@ public class HomeworkPage extends BasePage {
 
     @And("Verify Customers page is opened")
     public void verifyCustomersPageIsOpened() throws InterruptedException {
-        Assert.assertEquals(getDriver().findElement(By.xpath("//a[@style='text-decoration: none; color: inherit;']")).getAttribute("href"),"https://bigprof.com/demo/customers_view.php");
+        Assert.assertEquals(getDriver().findElement(By.xpath("//a[@style='text-decoration: none; color: inherit;']")).getAttribute("href"), "https://bigprof.com/demo/customers_view.php");
         Thread.sleep(2000);
     }
 
-
-    @And("Click at Customer ID “ANTON“")
-    public void clickAtCustomerIDANTON() {
+    @And("Click at Customer ID “ANTON“ Verify that particular Customer page is opened")
+    public void clickAtCustomerIDANTONVerifyThatParticularCustomerPageIsOpened() {
         getDriver().findElement(By.xpath("//*[@id='customers-CustomerID-ANTON']/a")).click();
-        Assert.assertEquals(getDriver().findElement(By.xpath("//a[@style='text-decoration: none; color: inherit;']")).getAttribute("href"),"https://bigprof.com/demo/customers_view.php");
+        Assert.assertEquals(getDriver().findElement(By.xpath("//a[@style='text-decoration: none; color: inherit;']")).getAttribute("href"), "https://bigprof.com/demo/customers_view.php");
     }
 }
 
