@@ -7,6 +7,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 
+import java.util.concurrent.TimeUnit;
+
 import static com.facebook.CucumberHooks.getDriver;
 
 /**
@@ -35,5 +37,15 @@ public class GlobalSteps {
         Thread.sleep(2000);
         getDriver().findElement(By.xpath("//button[@class='btn btn-default']")).click();
         return new Homework();
+    }
+
+    @Given("Index page")
+    public switchWindowsDemo indexPage() throws InterruptedException {
+        String baseUrl  = "https://letskodeit.teachable.com/p/practice";
+        getDriver().get(baseUrl);
+        getDriver().manage().window().maximize();
+        getDriver().manage().timeouts().implicitlyWait(10 , TimeUnit.SECONDS);
+        Thread.sleep(2000);
+        return new switchWindowsDemo();
     }
 }

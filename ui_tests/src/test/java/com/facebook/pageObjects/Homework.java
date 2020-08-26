@@ -55,6 +55,12 @@ public class Homework extends BasePage {
         getDriver().findElement(By.xpath("//a[@id='order_details_link']")).click();
     }
 
+    public  void sendKeysTo(By elementInput, String text){
+        getDriver().findElement(elementInput).sendKeys(text);
+    }
+
+
+
 
     @And("Click Catalog drop-down")
     public void click() throws InterruptedException {
