@@ -29,7 +29,7 @@ public class HomeworkVadim extends BasePage {
     public void SendKeys(By elementInput, String text){
         getDriver().findElement(elementInput).sendKeys(text);
     }
-    String userName= "firdavs1235";
+    String userName= "firdavs12377";
     @And("Go through sign up process")
     public void sighIn() throws InterruptedException {
         getDriver().findElement(By.xpath("//a[@class='btn btn-success navbar-btn navbar-right']")).click();

@@ -1,5 +1,6 @@
 Feature: Northwind
 
+  @Smoke
   Scenario: Firdavs
 
     Given  Go to basic URL
