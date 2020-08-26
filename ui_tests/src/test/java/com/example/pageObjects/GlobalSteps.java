@@ -1,9 +1,7 @@
 package com.example.pageObjects;
 
 import com.example.TestsConfig;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.Given;
 
 import static com.example.CucumberHooks.getDriver;
 
@@ -12,11 +10,18 @@ import static com.example.CucumberHooks.getDriver;
  * As well as all the entry points into the system (open a url)
  */
 public class GlobalSteps {
-    @When("I open start page")
-    public NorthwindStartPage iOpenDashboardPage() {
+    @Given("Go to basic URL")
+    public HomeworkPage iOpenDashboardPage() throws InterruptedException {
 //        Base URL is read from config.properties file located in resources folder. Key is base.url
         String baseUrl = TestsConfig.getConfig().getBaseUrl();
         getDriver().get(baseUrl);
-        return new NorthwindStartPage();
+        return new HomeworkPage();
     }
+
+    /*public void isPageOpened() throws InterruptedException {
+//        Add verifications implemented using WebDriverWait that would be checking if the page is actually opened
+        getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
+    }*/
+
+
 }

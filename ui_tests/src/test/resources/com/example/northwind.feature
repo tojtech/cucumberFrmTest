@@ -1,13 +1,29 @@
 Feature: Northwind
 
-  Scenario: Test sign in button
-    Given I open start page
-    And pop up message displays on the page that i should close
+  Scenario: Homework
+    Given Go to basic URL
+    And user should click on close button on pop up
     And I click on Sign in button  where i should be navigated to Sign in page
-    Then I type my username in username bar using invalid username
-    And i type my password in password bar using invalid password
-    Then i click on Remember me checkbox
-    And i click on sign in button
-    Then i should see error message displayed on the page
-    And after seeing error message i click on Sign Up button
+    And I click on Sign up button on the top right corner
+    Then Go through sign up process
+    And Login to the site
+    And i verify User is logged in
+    And i verify that description of Orders section contains “Orders placed by customers, with newest orders listed first.“ text
+    And Click Orders
+    And Verify User is on Orders page
+    And i click SALES dropdown at the header and click Customers from that dropdown
+    And Verify Customers page is opened
+    And Click at Customer ID “ANTON“
 
+
+
+
+
+
+
+
+
+
+
+
+#  12. Verify that particular Customer page is opened
