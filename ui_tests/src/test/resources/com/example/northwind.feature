@@ -1,5 +1,6 @@
 Feature: Northwind
 
+  @Smoke
   Scenario: Homework
     Given Go to basic URL
     And user should click on close button on pop up
