@@ -1,6 +1,7 @@
 package com.facebook.pageObjects;
 
 import com.facebook.BasePage;
+import com.facebook.helpers.ElementsInteraction;
 import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,9 @@ import static java.lang.Thread.sleep;
 
 
 public class Project1 {
+
+    public static  String generatedName = ElementsInteraction.generatingRandomAlphabeticString();
+
    @And("^Go through sign up process$")
     public void signUp() throws InterruptedException {
        getDriver().findElement(By.xpath("/html/body/div[1]/nav/div[2]/a")).click(); //click sign in button
@@ -25,7 +29,7 @@ public class Project1 {
 
        Thread.sleep(2000);
 
-       getDriver().findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("Msavich7");//enter UserName;
+       getDriver().findElement(By.xpath("//*[@id=\"username\"]")).sendKeys(generatedName);//enter UserName;
 
        Thread.sleep(2000);
 
@@ -54,7 +58,7 @@ public class Project1 {
 
    @And("^Login to the site$")
    public void logIn() throws InterruptedException {
-        getDriver().findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("Msavich7");
+        getDriver().findElement(By.xpath("//*[@id=\"username\"]")).sendKeys(generatedName);
 
         getDriver().findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("12345.Aa");
 
@@ -125,6 +129,8 @@ public class Project1 {
     }
     @And("^Verify “About this demo“ modal is opened$")
     public void verifyAboutThisDemo() throws InterruptedException {
+        Thread.sleep(2000);
+
        Assert.assertEquals(getAboutThisDemo().getText(), "About this demo");
         Thread.sleep(2000);
     }

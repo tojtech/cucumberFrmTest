@@ -2,6 +2,7 @@ package com.facebook.helpers;
 
 import com.facebook.selenium.SeleniumConfig;
 import com.facebook.selenium.WaitForAjaxCalls;
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -45,4 +46,14 @@ public final class ElementsInteraction {
     public static By getLocator(String elementLocatorTemplate, String... dynamicLocatorParts) {
         return By.xpath(String.format(elementLocatorTemplate, dynamicLocatorParts));
     }
+
+    public static String generatingRandomAlphabeticString() {
+        String generatedString = RandomStringUtils.randomAlphabetic(10);
+
+        System.out.println(generatedString);
+
+        return generatedString;
+    }
 }
+
+
