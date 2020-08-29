@@ -1,5 +1,5 @@
 Feature: NorthWind
-
+@Regression
   Scenario Outline: New test scenario
     Given I open NorthWind page
     When is my page open
