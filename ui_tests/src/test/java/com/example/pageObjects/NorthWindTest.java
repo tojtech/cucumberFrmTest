@@ -22,6 +22,13 @@ public class NorthWindTest extends BasePage {
             Assert.assertFalse(searchElements.isEmpty());
 
         }
+    @When("close popup")
+    public void closePopup() throws InterruptedException {
+        Thread.sleep(1000);
+        WebElement closeButtonOnModal = getDriver().findElement(By.xpath("//div[@class='modal-footer']/button"));
+        Thread.sleep(2000);
+        closeButtonOnModal.click();
+    }
      public WebElement signInPageElement(){
          return getDriver().findElement(By.cssSelector("a[class=\"btn btn-success navbar-btn navbar-right\"]"));
         }
