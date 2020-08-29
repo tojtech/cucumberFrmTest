@@ -1,5 +1,5 @@
 Feature: Landing
-
+@smoke
 Scenario: first automation test
   Given I open chrome page
   When is my search field visible

@@ -1,5 +1,5 @@
 Feature: NorthWind
-
+@Regression
   Scenario: Automating Northwind web page test cases
     Given I open NorthWind page
     When sleep and close popup

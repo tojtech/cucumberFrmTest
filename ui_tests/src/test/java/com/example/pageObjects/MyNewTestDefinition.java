@@ -1,9 +1,7 @@
 package com.example.pageObjects;
 
 import com.example.BasePage;
-import com.example.TestsConfig;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
@@ -53,7 +51,6 @@ import static com.example.helpers.ElementsInteraction.getWait;
         link.click();
 
              }
-
              @When("is GitHub page open")
     public void isGitHubPageOpen() {
         List<WebElement> searchElements = getDriver().findElements(By.cssSelector("a[href=\"https://www.youtube.com/githubguides\"]"));
