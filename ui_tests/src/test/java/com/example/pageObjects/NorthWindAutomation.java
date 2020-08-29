@@ -48,7 +48,7 @@ public  class NorthWindAutomation extends BasePage{
     }
     public String usernameText(){
         //Change username for each run
-         String textToTypeInUserName = "admin5041";
+         String textToTypeInUserName = "admin5043";
          return textToTypeInUserName;
     }
     public String passwordText(){
@@ -167,7 +167,7 @@ public  class NorthWindAutomation extends BasePage{
     @And("Is status is Shipped")
     public void isStatusIsShipped() {
         String shipField = getDriver().findElement(By.cssSelector("#status > span")).getText();
-        Assert.assertTrue(shipField.contains("Shipped"));
+        Assert.assertFalse(shipField.contains("Late"));
     }
 
     @And("I click Back button on that order page")
