@@ -32,7 +32,7 @@ public class SignedInPage extends BasePage {
 
     @And("^user verifies he is logged in$")
     public void verifyLogin() throws InterruptedException {
-        String username = "jaime4"; //NOTE before each execution remember to change username
+        String username = "jaime5"; //NOTE before each execution remember to change username
         getUsernameBox().sendKeys(username);
         Thread.sleep(2000);
 
@@ -42,7 +42,7 @@ public class SignedInPage extends BasePage {
 
         getSignInButton().click();
 
-        Assert.assertEquals(getVerifiedUsername().getText(), "jaime4");
+        Assert.assertEquals(getVerifiedUsername().getText(), "jaime5");
     }
 
     @And("^verify description of Orders contains \"([^\"]*)\"$")
