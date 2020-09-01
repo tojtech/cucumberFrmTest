@@ -15,3 +15,6 @@ Feature: Northwind Task
     And user verifies Customers page is opened
     And user clicks on Customer ID Anton
     And user verifies Anton customer page is opened
+
+
+#  Anton customer page is opened

@@ -35,7 +35,7 @@ public class BigprofIndexPage extends BasePage {
         getSigninButton().click();
         return new SignupPage();
     }
-
+// GETTERS BELOW
     public WebElement getSigninButton(){
         return getDriver().findElement(By.xpath("/html/body/div[1]/nav/div[2]/a"));
     }
