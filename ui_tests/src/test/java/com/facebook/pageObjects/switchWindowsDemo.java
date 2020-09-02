@@ -102,17 +102,17 @@ public class switchWindowsDemo extends BasePage {
         getDriver().findElement(By.xpath("//div[@class='row search']/div[1]/div[2]/ul/li[4]/a")).click();
         Thread.sleep(2000);
 
-        WebElement element2 = getDriver().findElement(By.xpath("HEllo "));
+//        WebElement element2 = getDriver().findElement(By.xpath("HEllo "));
 
-        Actions action2 = new Actions(getDriver());
-
-
-        //mouse hover
-        action2.moveToElement(element2).build().perform();
-
-
-        //drag and drop
-        action2.moveToElement(element2).dragAndDrop(element,element2);
+//        Actions action2 = new Actions(getDriver());
+//
+//
+//        //mouse hover
+//        action2.moveToElement(element2).build().perform();
+//
+//
+//        //drag and drop
+//        action2.moveToElement(element2).dragAndDrop(element,element2);
 
 
 
