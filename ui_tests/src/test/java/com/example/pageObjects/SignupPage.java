@@ -27,7 +27,7 @@ public class SignupPage extends BasePage {
      */
     public void isPageOpened() {
 //        Add verifications implemented using WebDriverWait that would be checking if the page is actually opened
-        getWait().until(ExpectedConditions.titleIs("Northwind | "));
+        getWait().until(ExpectedConditions.titleIs("Northwind | Homepage"));
     }
 
     @And("^user clicks at Sign Up button on the top right corner$")

@@ -1,6 +1,6 @@
 Feature: Northwind Task
 
-  @Smoke
+  ##@Smoke
   Scenario: Open start page
     Given I open index page
     And user clicks Sign In button on the top right corner
