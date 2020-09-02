@@ -2,7 +2,7 @@ Feature: lets kode it
 
 
 
-  @Only
+  @Ozoda
   Scenario: switching between windows
     Given Index page
     And click on new Window button
