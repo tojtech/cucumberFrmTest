@@ -1,6 +1,5 @@
 Feature: Northwind Task
 
-  ##@Smoke
   Scenario: Open start page
     Given I open index page
     And user clicks Sign In button on the top right corner
@@ -16,6 +15,3 @@ Feature: Northwind Task
     And user verifies Customers page is opened
     And user clicks on Customer ID Anton
     And user verifies Anton customer page is opened
-
-
-#  Anton customer page is opened
