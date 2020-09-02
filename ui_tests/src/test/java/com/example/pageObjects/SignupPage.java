@@ -37,7 +37,7 @@ public class SignupPage extends BasePage {
 
     @And("^user fills out Sign Up form$")
     public void fillSignupForm() throws InterruptedException {
-        String username = "jaime5"; //NOTE before each execution remember to change username
+        String username = "jaime2"; //NOTE before each execution remember to change username
         getUsernameBox().sendKeys(username);
         Thread.sleep(2000);
 
