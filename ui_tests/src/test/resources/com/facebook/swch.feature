@@ -1,6 +1,8 @@
 Feature: lets kode it
 
 
+
+  @Only
   Scenario: switching between windows
     Given Index page
     And click on new Window button
