@@ -1,7 +1,6 @@
 Feature: Northwind Task
 
   Scenario: Open start page
-
     Given I open index page
     And user clicks Sign In button on the top right corner
     And user clicks at Sign Up button on the top right corner

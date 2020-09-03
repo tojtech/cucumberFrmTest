@@ -130,6 +130,7 @@ public class SignedInPage extends BasePage {
     }
 
     public WebElement getVerifiedAnton() {
+
         return getDriver().findElement(By.xpath("//div[@id='CustomerID']"));
     }
 
