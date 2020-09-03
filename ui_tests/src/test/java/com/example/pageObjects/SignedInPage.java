@@ -31,7 +31,7 @@ public class SignedInPage extends BasePage {
     }
 
     @And("^user verifies he is logged in$")
-    public void verifyLogin() throws InterruptedException {
+    public BigprofIndexPage verifyLogin() throws InterruptedException {
         String username = "jaime2"; //NOTE before each execution remember to change username
         getUsernameBox().sendKeys(username);
         Thread.sleep(2000);
@@ -42,7 +42,7 @@ public class SignedInPage extends BasePage {
 
         getSignInButton().click();
 
-        Assert.assertEquals(getVerifiedUsername().getText(), "jaime2");
+        return new BigprofIndexPage();
     }
 
     @And("^verify description of Orders contains \"([^\"]*)\"$")
@@ -115,10 +115,6 @@ public class SignedInPage extends BasePage {
 
     public WebElement getOrderText() {
         return getDriver().findElement(By.xpath("/html/body/div[1]/div[4]/div[1]/div[2]/div/div/div[2]"));
-    }
-
-    public WebElement getVerifiedUsername() {
-        return getDriver().findElement(By.xpath("/html/body/div[1]/nav/div[2]/ul[2]/p/strong/a"));
     }
 
     public WebElement getSignInButton() {
